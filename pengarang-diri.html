@@ -4483,9 +4483,12 @@ Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.\`;
       `Berikut maklumat log masuk anda:\n` +
       `Kata Laluan: ${currentGen.password}\n\n` +
       `Cara guna:\n` +
-      `1. Buka fail workbook yang dilampirkan dalam browser\n` +
-      `2. Masukkan kata laluan di atas\n` +
-      `3. Mulakan perjalanan anda!\n\n` +
+      `1. Muat turun dan simpan fail workbook yang dilampirkan\n` +
+      `2. Buka fail dalam browser (Chrome/Safari/Firefox)\n` +
+      `3. Masukkan kata laluan di atas\n` +
+      `4. Mulakan perjalanan anda!\n\n` +
+      `💾 Boleh sambung semula: Jawapan anda tersimpan automatik. Kalau berhenti di tengah jalan, buka semula fail yang SAMA dalam browser dan peranti yang SAMA — semua jawapan masih ada.\n\n` +
+      `⚠️ Jangan delete fail ini dari komputer anda!\n\n` +
       `Selamat menulis,\nPasukan Pengarang Diri`;
     navigator.clipboard.writeText(txt).then(() => adminToast('Teks email disalin!'));
   };
