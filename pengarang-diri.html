@@ -1977,7 +1977,6 @@ Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.`;
   function showApp() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app-content').style.display  = 'block';
-    document.getElementById('admin-dot').style.display    = 'block';
   }
 
   function showLogin(msg) {
@@ -2128,14 +2127,11 @@ Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.`;
 </script>
 
 <!-- HIDDEN ADMIN DOT -->
-<div id="admin-dot" onclick="adminDotClick()" style="
-  position:fixed; bottom:12px; right:14px;
-  width:8px; height:8px; border-radius:50%;
-  background:rgba(107,140,111,0.25);
-  cursor:pointer; z-index:9998;
-  transition: background .3s;
-  display:none;
-" title=""></div>
+<div style="position:fixed; bottom:14px; right:14px; z-index:9998; display:flex; gap:5px; align-items:center; cursor:pointer;" onclick="adminDotClick()" title="">
+  <div style="width:6px;height:6px;border-radius:50%;background:rgba(168,196,172,0.45);"></div>
+  <div style="width:6px;height:6px;border-radius:50%;background:rgba(168,196,172,0.45);"></div>
+  <div style="width:6px;height:6px;border-radius:50%;background:rgba(168,196,172,0.45);"></div>
+</div>
 
 <!-- ADMIN LOGIN OVERLAY -->
 <div id="admin-overlay" style="
@@ -2252,18 +2248,12 @@ Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.`;
   const ADJECTIVES = ['Biru','Hijau','Emas','Perak','Merah','Ungu','Putih','Gelap','Cerah','Terang','Anggun','Mulia','Tenang','Berani','Gagah'];
   const NOUNS      = ['Helang','Rimau','Naga','Bayu','Suria','Bintang','Lautan','Gunung','Hutan','Angin','Harimau','Langit','Bulan','Cahaya','Impian'];
 
-  let dotClicks = 0, dotTimer = null, currentGen = null;
+  let currentGen = null;
 
-  // Dot: triple-click to open
+  // Dot: single click opens admin overlay directly
   window.adminDotClick = function() {
-    dotClicks++;
-    clearTimeout(dotTimer);
-    if (dotClicks >= 3) {
-      dotClicks = 0;
-      document.getElementById('admin-overlay').style.display = 'flex';
-      setTimeout(() => document.getElementById('admin-pw-input').focus(), 100);
-    }
-    dotTimer = setTimeout(() => dotClicks = 0, 800);
+    document.getElementById('admin-overlay').style.display = 'flex';
+    setTimeout(() => document.getElementById('admin-pw-input').focus(), 100);
   };
 
   window.closeAdmin = function() {
@@ -4313,7 +4303,6 @@ Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.\`;
   function showApp() {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app-content').style.display  = 'block';
-    document.getElementById('admin-dot').style.display    = 'block';
   }
 
   function showLogin(msg) {
