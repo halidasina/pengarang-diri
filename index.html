@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengarang Diri — Program Pembangunan Diri #1 Malaysia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --forest:     #1C2E20;
+  --forest-mid: #2D4A33;
+  --sage:       #6B8C6F;
+  --sage-light: #A8C4AC;
+  --gold:       #C9943A;
+  --gold-light: #E8C87A;
+  --gold-pale:  #FBF5E8;
+  --terra:      #C4614A;
+  --terra-light:#E8A090;
+  --terra-pale: #FBF0EE;
+  --cream:      #F9F5EE;
+  --warm-white: #FEFCF8;
+  --text:       #1C1C1C;
+  --text-mid:   #444;
+  --text-soft:  #888;
+  --border:     rgba(107,140,111,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── ANNOUNCEMENT BAR ─── */
+.topbar {
+  background: var(--forest);
+  color: var(--gold-light);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+.topbar strong { font-weight: 500; color: #fff; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(254,252,248,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  height: 64px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--forest);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-size: 14px; color: var(--text-mid);
+  text-decoration: none; font-weight: 400;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--forest); }
+.nav-cta {
+  background: var(--forest); color: #fff !important;
+  padding: 9px 22px; border-radius: 8px;
+  font-weight: 500 !important;
+  transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--forest-mid) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 92vh;
+  background: var(--forest);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(201,148,58,0.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-left {
+  padding: 80px 6% 80px 8%;
+  position: relative; z-index: 1;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,148,58,0.15);
+  border: 1px solid rgba(201,148,58,0.3);
+  border-radius: 40px; padding: 6px 16px;
+  font-size: 12px; font-weight: 500;
+  color: var(--gold-light); margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%; background: var(--gold);
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 4.5vw, 60px);
+  color: #fff; line-height: 1.15;
+  font-weight: 700; margin-bottom: 20px;
+}
+.hero h1 em {
+  color: var(--gold-light);
+  font-style: italic; font-weight: 400;
+}
+.hero-sub {
+  font-size: 17px; color: var(--sage-light);
+  max-width: 480px; font-weight: 300;
+  line-height: 1.7; margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn-primary {
+  background: var(--gold); color: var(--forest);
+  padding: 15px 32px; border-radius: 10px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .2s, transform .15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost {
+  color: rgba(255,255,255,0.7); font-size: 14px;
+  text-decoration: none; font-weight: 400;
+  display: flex; align-items: center; gap: 6px;
+  transition: color .2s;
+}
+.btn-ghost:hover { color: #fff; }
+
+.hero-stats {
+  display: flex; gap: 32px; margin-top: 52px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700;
+  color: var(--gold-light); line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: 12px; color: rgba(255,255,255,0.4);
+  margin-top: 2px; font-weight: 300;
+}
+
+/* Book mockup */
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  padding: 60px 8% 60px 0;
+  position: relative; z-index: 1;
+}
+.book-wrap {
+  position: relative;
+  transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
+  transition: transform .4s ease;
+}
+.book-wrap:hover {
+  transform: perspective(800px) rotateY(-4deg) rotateX(1deg);
+}
+.book {
+  width: 260px; height: 360px;
+  border-radius: 4px 12px 12px 4px;
+  background: var(--forest-mid);
+  position: relative;
+  box-shadow:
+    -8px 0 0 rgba(0,0,0,0.3),
+    -10px 4px 20px rgba(0,0,0,0.5),
+    4px 8px 40px rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+.book-spine {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+}
+.book-cover-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1C2E20 0%, #2D4A33 60%, #1A3520 100%);
+}
+.book-deco-circle {
+  position: absolute;
+  border-radius: 50%;
+}
+.book-inner {
+  position: relative; z-index: 1;
+  height: 100%; padding: 28px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.book-label {
+  font-size: 7px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+}
+.book-title-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; color: #fff;
+  line-height: 1.2; font-weight: 700;
+}
+.book-title-em {
+  font-style: italic; color: var(--gold-light);
+  font-weight: 400; font-size: 30px;
+}
+.book-divider {
+  height: 1px; background: rgba(201,148,58,0.3);
+  margin: 12px 0;
+}
+.book-sub-text {
+  font-size: 8px; color: var(--sage-light);
+  line-height: 1.6; font-weight: 300;
+}
+.book-modules {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.book-module {
+  display: flex; align-items: center; gap: 8px;
+}
+.book-mod-num {
+  font-size: 8px; color: var(--gold);
+  font-weight: 600; width: 14px;
+}
+.book-mod-label {
+  font-size: 8px; color: rgba(255,255,255,0.6);
+}
+.book-pages {
+  position: absolute; right: -3px; top: 10px; bottom: 10px;
+  width: 6px;
+  background: linear-gradient(to right, #e8e0d0, #f5f0e8);
+  border-radius: 0 2px 2px 0;
+}
+
+/* floating badge on book */
+.book-badge {
+  position: absolute; top: -16px; right: -16px;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(201,148,58,0.5);
+}
+.book-badge .price { font-size: 18px; font-weight: 700; color: var(--forest); line-height: 1; }
+.book-badge .price-label { font-size: 7px; color: var(--forest); opacity: 0.7; font-weight: 500; letter-spacing: 0.5px; }
+
+/* ─── WAVE SEPARATOR ─── */
+.wave {
+  display: block;
+  background: var(--forest);
+  line-height: 0;
+}
+.wave svg { display: block; width: 100%; }
+
+/* ─── SECTION COMMON ─── */
+section { padding: 96px 8%; }
+.section-tag {
+  display: inline-block;
+  font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 500;
+  color: var(--sage); margin-bottom: 12px;
+}
+h2.section-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--forest); line-height: 1.2;
+  font-weight: 700; margin-bottom: 16px;
+}
+h2.section-h em { color: var(--gold); font-style: italic; font-weight: 400; }
+.section-desc {
+  font-size: 16px; color: var(--text-mid);
+  max-width: 540px; font-weight: 300;
+  line-height: 1.75;
+}
+
+/* ─── PROBLEM SECTION ─── */
+.problem { background: var(--cream); }
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px; margin-top: 48px;
+}
+.problem-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 14px; padding: 28px;
+  position: relative; overflow: hidden;
+}
+.problem-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--terra);
+  opacity: 0.6;
+}
+.problem-card .icon { font-size: 28px; margin-bottom: 14px; }
+.problem-card h3 {
+  font-size: 16px; font-weight: 600;
+  color: var(--text); margin-bottom: 8px;
+}
+.problem-card p { font-size: 14px; color: var(--text-mid); font-weight: 300; line-height: 1.65; }
+
+/* ─── MODULES ─── */
+.modules-section { background: var(--warm-white); }
+.modules-section .inner { max-width: 900px; margin: 0 auto; }
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 56px;
+}
+.mod-card {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform .2s, box-shadow .2s;
+}
+.mod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(28,46,32,0.1); }
+.mod-card-head {
+  padding: 28px 24px 20px;
+  position: relative;
+}
+.mod-card-head.lalu { background: var(--forest); }
+.mod-card-head.kini { background: var(--gold); }
+.mod-card-head.depan { background: var(--terra); }
+.mod-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700;
+  opacity: 0.18; line-height: 1;
+  position: absolute; right: 20px; top: 16px;
+  color: #fff;
+}
+.mod-tag {
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  opacity: 0.7; margin-bottom: 8px;
+}
+.mod-card-head.kini .mod-tag { color: var(--forest); }
+.mod-card-head.lalu .mod-tag,
+.mod-card-head.depan .mod-tag { color: rgba(255,255,255,0.7); }
+.mod-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; line-height: 1.2;
+}
+.mod-card-head.kini .mod-h { color: var(--forest); }
+.mod-card-head.lalu .mod-h,
+.mod-card-head.depan .mod-h { color: #fff; }
+
+.mod-card-body { padding: 24px; background: var(--warm-white); }
+.mod-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.mod-items li {
+  font-size: 13px; color: var(--text-mid);
+  display: flex; align-items: flex-start; gap: 8px; font-weight: 300;
+}
+.mod-items li::before {
+  content: '→'; font-size: 11px;
+  color: var(--sage); margin-top: 2px; flex-shrink: 0;
+}
+
+/* ─── SCIENCE ─── */
+.science { background: var(--forest); }
+.science .section-tag { color: var(--gold); }
+.science h2.section-h { color: #fff; }
+.science h2.section-h em { color: var(--gold-light); }
+.science .section-desc { color: var(--sage-light); }
+.science-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; margin-top: 56px;
+}
+.sci-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px; padding: 28px 24px;
+  text-align: center;
+  transition: background .2s;
+}
+.sci-card:hover { background: rgba(255,255,255,0.08); }
+.sci-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px; font-weight: 700;
+  color: var(--gold-light); line-height: 1;
+  margin-bottom: 8px;
+}
+.sci-label {
+  font-size: 13px; color: var(--sage-light);
+  font-weight: 300; line-height: 1.5;
+}
+
+.quote-block {
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 28px 32px; margin-top: 52px;
+}
+.quote-block q {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-style: italic;
+  color: var(--gold-light); line-height: 1.55;
+  quotes: none;
+}
+.quote-source {
+  font-size: 13px; color: var(--sage-light);
+  margin-top: 12px; font-weight: 300;
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials { background: var(--cream); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; margin-top: 52px;
+}
+.testi-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+  position: relative;
+}
+.stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+.testi-text {
+  font-size: 14px; color: var(--text-mid);
+  line-height: 1.75; font-weight: 300;
+  font-style: italic; margin-bottom: 20px;
+}
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 600; flex-shrink: 0;
+}
+.testi-name { font-size: 14px; font-weight: 500; color: var(--text); }
+.testi-role { font-size: 12px; color: var(--text-soft); font-weight: 300; }
+
+/* ─── PRICING ─── */
+.pricing { background: var(--warm-white); }
+.pricing-wrap {
+  max-width: 820px; margin: 56px auto 0;
+  display: grid; grid-template-columns: 1fr 1.1fr;
+  gap: 20px; align-items: start;
+}
+.price-card {
+  border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.price-card.featured {
+  border-color: var(--gold);
+  box-shadow: 0 12px 48px rgba(201,148,58,0.15);
+}
+.price-head {
+  padding: 24px 28px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+.price-card.featured .price-head {
+  background: var(--forest);
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+.price-tag-label {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-soft);
+  font-weight: 500; margin-bottom: 8px;
+}
+.price-card.featured .price-tag-label { color: var(--gold); }
+.price-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text); margin-bottom: 14px;
+}
+.price-card.featured .price-name { color: #fff; }
+.price-amount {
+  display: flex; align-items: baseline; gap: 4px;
+}
+.price-currency { font-size: 18px; font-weight: 500; color: var(--text-soft); }
+.price-card.featured .price-currency { color: var(--gold-light); }
+.price-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px; font-weight: 700;
+  color: var(--text); line-height: 1;
+}
+.price-card.featured .price-value { color: #fff; }
+.price-period { font-size: 14px; color: var(--text-soft); font-weight: 300; }
+.price-card.featured .price-period { color: rgba(255,255,255,0.5); }
+.price-strike {
+  font-size: 14px; color: var(--text-soft);
+  text-decoration: line-through; margin-left: 8px;
+}
+
+.price-body { padding: 24px 28px; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.price-features li {
+  font-size: 14px; color: var(--text-mid);
+  display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+}
+.check { color: var(--sage); font-weight: 600; font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+.check.gold { color: var(--gold); }
+
+.btn-buy {
+  display: block; width: 100%;
+  padding: 14px; border-radius: 10px;
+  font-size: 15px; font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center; cursor: pointer;
+  border: none; text-decoration: none;
+  transition: all .2s;
+}
+.btn-buy-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+}
+.btn-buy-outline:hover { border-color: var(--sage); color: var(--forest); }
+.btn-buy-gold {
+  background: var(--gold); color: var(--forest);
+}
+.btn-buy-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+.best-value {
+  display: inline-block;
+  background: var(--gold); color: var(--forest);
+  font-size: 10px; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px;
+  letter-spacing: 0.5px; margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.guarantee {
+  text-align: center; margin-top: 28px;
+  font-size: 13px; color: var(--text-soft);
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+
+/* ─── FAQ ─── */
+.faq { background: var(--cream); }
+.faq-list { max-width: 680px; margin: 52px auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 16px;
+  padding: 20px 0; cursor: pointer;
+  font-size: 15px; font-weight: 500; color: var(--text);
+  transition: color .15s;
+}
+.faq-q:hover { color: var(--forest-mid); }
+.faq-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
+  border-radius: 50%; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--text-soft);
+  transition: transform .2s, background .2s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--forest); color: #fff; border-color: var(--forest); }
+.faq-a {
+  display: none; padding: 0 0 20px;
+  font-size: 14px; color: var(--text-mid);
+  line-height: 1.75; font-weight: 300;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ─── CTA FINAL ─── */
+.cta-final {
+  background: var(--forest);
+  padding: 120px 8%;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute; top: -120px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,148,58,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-final h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 50px);
+  color: #fff; line-height: 1.2;
+  font-weight: 700; margin-bottom: 16px;
+}
+.cta-final h2 em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+.cta-final p {
+  font-size: 16px; color: var(--sage-light);
+  max-width: 480px; margin: 0 auto 40px;
+  font-weight: 300;
+}
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-cta-main {
+  background: var(--gold); color: var(--forest);
+  padding: 16px 40px; border-radius: 10px;
+  font-size: 16px; font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all .2s;
+  display: inline-block;
+}
+.btn-cta-main:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-cta-ghost {
+  color: rgba(255,255,255,0.5); font-size: 14px;
+  text-decoration: none; display: flex;
+  align-items: center; gap: 6px;
+  transition: color .2s;
+}
+.btn-cta-ghost:hover { color: #fff; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #111c13;
+  padding: 48px 8% 32px;
+}
+.footer-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700;
+  color: #fff; margin-bottom: 10px;
+}
+.footer-brand span { color: var(--gold); }
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.35); font-weight: 300; }
+.footer-links-col h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; font-weight: 500; }
+.footer-links-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 8px; font-weight: 300; transition: color .15s; }
+.footer-links-col a:hover { color: rgba(255,255,255,0.8); }
+.footer-bottom {
+  padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,0.25);
+  flex-wrap: wrap; gap: 8px;
+}
+
+/* ─── STICKY MOBILE CTA ─── */
+.sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+  background: var(--warm-white);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.1);
+}
+.sticky-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.sticky-price { font-size: 22px; font-weight: 700; color: var(--forest); }
+.sticky-price span { font-size: 13px; font-weight: 300; color: var(--text-soft); text-decoration: line-through; }
+
+
+/* ─── HOW IT WORKS ─── */
+.hiw-step {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  position: relative;
+}
+.hiw-num {
+  position: absolute; top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--forest);
+  color: var(--gold-light);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px; border-radius: 20px;
+}
+.hiw-icon { font-size: 32px; margin: 16px 0 12px; }
+.hiw-title {
+  font-size: 15px; font-weight: 600;
+  color: var(--text); margin-bottom: 8px;
+}
+.hiw-desc {
+  font-size: 13px; color: var(--text-mid);
+  font-weight: 300; line-height: 1.65;
+}
+.hiw-desc code {
+  background: rgba(45,74,51,0.08);
+  color: var(--forest-mid);
+  padding: 1px 6px; border-radius: 4px;
+  font-size: 12px; font-family: monospace;
+}
+.hiw-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--sage-light);
+  padding: 0 4px; margin-top: 40px;
+}
+.feat-box {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--sage);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.feat-box-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.feat-box-title {
+  font-size: 14px; font-weight: 600;
+  color: var(--text); margin-bottom: 4px;
+}
+.feat-box-desc {
+  font-size: 13px; color: var(--text-mid);
+  font-weight: 300; line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .hiw-arrow { display: none; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { display: none; }
+  .hero-left { padding: 60px 6%; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .pricing-wrap { grid-template-columns: 1fr; }
+  nav .nav-links { display: none; }
+  .sticky-cta { display: block; }
+  section { padding: 72px 6%; }
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+.hero-left > * { animation: fadeUp .7s ease both; }
+.hero-badge { animation-delay: .1s; }
+.hero h1 { animation-delay: .2s; }
+.hero-sub { animation-delay: .35s; }
+.hero-actions { animation-delay: .5s; }
+.hero-stats { animation-delay: .65s; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  🎉 <strong>Promosi Pelancaraan:</strong> Dapatkan ebook + workbook interaktif dengan harga istimewa — terhad masa &nbsp;·&nbsp; Jimat 40%
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Pengarang<span>Diri</span></a>
+  <div class="nav-links">
+    <a href="#modules">Modul</a>
+    <a href="#sains">Sains</a>
+    <a href="#testimonial">Testimoni</a>
+    <a href="#harga">Harga</a>
+    <a href="https://molife.onpay.my/order/form/8" class="nav-cta" target="_blank">Dapatkan Sekarang →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Program #1 Pembangunan Diri Malaysia
+    </div>
+    <h1>Tulis Cerita<br>Hidup Anda.<br><em>Ubah Takdir</em><br>Anda.</h1>
+    <p class="hero-sub">Program penulisan reflektif berasaskan sains yang membantu profesional muda Malaysia memahami masa lalu, menguasai masa kini, dan mereka bentuk masa depan yang bermakna.</p>
+    <div class="hero-actions">
+      <a href="https://molife.onpay.my/order/form/8" class="btn-primary" target="_blank">Mula Perjalanan Saya — RM47</a>
+      <a href="#modules" class="btn-ghost">Lihat apa yang ada ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">3</div>
+        <div class="lbl">Modul lengkap</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">4–6j</div>
+        <div class="lbl">Anggaran masa</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">PDF+</div>
+        <div class="lbl">Interaktif & cetak</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="book-wrap">
+      <div class="book">
+        <div class="book-cover-bg"></div>
+        <div class="book-deco-circle" style="width:200px;height:200px;right:-60px;top:-60px;background:rgba(201,148,58,0.08);"></div>
+        <div class="book-deco-circle" style="width:120px;height:120px;left:-30px;bottom:-30px;background:rgba(107,111,168,0.07);"></div>
+        <div class="book-spine"></div>
+        <div class="book-inner">
+          <div>
+            <div class="book-label">Program Pembangunan Diri</div>
+            <div style="margin-top:20px;">
+              <div class="book-title-text">PENGARANG</div>
+              <div class="book-title-em">Diri</div>
+            </div>
+            <div class="book-divider"></div>
+            <div class="book-sub-text">Jelajah Masa Lalu.<br>Kenali Masa Kini.<br>Reka Masa Depan.</div>
+          </div>
+          <div class="book-modules">
+            <div class="book-module"><span class="book-mod-num">01</span><span class="book-mod-label">Masa Lalu</span></div>
+            <div class="book-module"><span class="book-mod-num">02</span><span class="book-mod-label">Masa Kini</span></div>
+            <div class="book-module"><span class="book-mod-num">03</span><span class="book-mod-label">Masa Depan</span></div>
+          </div>
+        </div>
+        <div class="book-pages"></div>
+      </div>
+      <div class="book-badge">
+        <div class="price">RM47</div>
+        <div class="price-label">SAHAJA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--warm-white);">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+    <path fill="#1C2E20" d="M0,0 C360,60 1080,0 1440,40 L1440,0 Z"/>
+  </svg>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem" id="masalah">
+  <div class="section-tag">Anda Kenal Tidak?</div>
+  <h2 class="section-h">Ramai yang <em>hilang arah</em><br>walaupun sudah bekerja keras.</h2>
+  <p class="section-desc">Bukan kerana tidak berbakat. Tetapi kerana tidak pernah duduk diam dan bertanya soalan yang betul kepada diri sendiri.</p>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="icon">😓</div>
+      <h3>Rasa terperangkap dalam rutin</h3>
+      <p>Setiap hari nampak sama. Kerja, balik, tidur. Rasa ada sesuatu yang lebih besar untuk dicapai, tapi tak tahu apa.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">🌀</div>
+      <h3>Tak pasti tujuan hidup sebenar</h3>
+      <p>Sudah habis belajar, sudah bekerja — tapi masih tertanya: "Ini ke yang saya nak buat selama-lamanya?"</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">😰</div>
+      <h3>Bimbang tentang masa depan</h3>
+      <p>Kehidupan orang lain nampak lebih terarah. Anda rasa ketinggalan atau tidak tahu nak mula dari mana.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">🔁</div>
+      <h3>Tabiat lama yang susah diubah</h3>
+      <p>Tahu apa yang perlu dilakukan — tapi entah mengapa, tabiat lama terus menang. Selalu menyalahkan diri sendiri.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="modules-section" id="modules">
+  <div class="inner">
+    <div class="section-tag">Apa Yang Ada Dalam Ebook Ini</div>
+    <h2 class="section-h">Tiga modul.<br><em>Satu perjalanan lengkap.</em></h2>
+    <p class="section-desc">Setiap modul dibina secara berturutan — masing-masing menyediakan asas untuk modul berikutnya.</p>
+    <div class="modules-grid">
+      <div class="mod-card">
+        <div class="mod-card-head lalu">
+          <div class="mod-num">01</div>
+          <div class="mod-tag">Modul Pertama</div>
+          <div class="mod-h">Masa Lalu</div>
+        </div>
+        <div class="mod-card-body">
+          <ul class="mod-items">
+            <li>Bahagikan hidup kepada 6 zaman bermakna</li>
+            <li>Kenal pasti 3 peristiwa paling membentuk diri</li>
+            <li>Proses kenangan yang belum selesai</li>
+            <li>Fahami warisan yang anda bawa ke hari ini</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-card-head kini">
+          <div class="mod-num">02</div>
+          <div class="mod-tag">Modul Kedua</div>
+          <div class="mod-h">Masa Kini</div>
+        </div>
+        <div class="mod-card-body">
+          <ul class="mod-items">
+            <li>Kenali tabiat yang menghalang kemajuan anda</li>
+            <li>Temukan pencetus tingkah laku negatif</li>
+            <li>Akui dan kembangkan kekuatan semulajadi</li>
+            <li>Seimbangkan pandangan tentang diri sendiri</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mod-card">
+        <div class="mod-card-head depan">
+          <div class="mod-num">03</div>
+          <div class="mod-tag">Modul Ketiga</div>
+          <div class="mod-h">Masa Depan</div>
+        </div>
+        <div class="mod-card-body">
+          <ul class="mod-items">
+            <li>Bayangkan kehidupan ideal 3–5 tahun akan datang</li>
+            <li>Tetapkan matlamat dalam 5 bidang kehidupan</li>
+            <li>Rancang cara mengatasi halangan</li>
+            <li>Tetapkan langkah pertama yang konkrit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section style="background: var(--cream); padding: 96px 8%;" id="cara-guna">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div class="section-tag">Cara Ia Berfungsi</div>
+    <h2 class="section-h">Bukan sekadar PDF biasa.<br><em>Ia hidup di skrin anda.</em></h2>
+    <p class="section-desc" style="margin-bottom: 56px;">Pakej Lengkap datang dengan workbook interaktif — fail HTML yang anda buka terus dalam browser. Tak perlu install apa-apa. Tak perlu internet selepas muat turun.</p>
+
+    <!-- Step-by-step visual -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative;">
+
+      <div class="hiw-step">
+        <div class="hiw-num">01</div>
+        <div class="hiw-icon">📥</div>
+        <h3 class="hiw-title">Terima fail anda</h3>
+        <p class="hiw-desc">Selepas bayar, anda akan terima satu fail <code>.html</code> dan kata laluan unik melalui email dalam masa 24 jam.</p>
+      </div>
+
+      <div class="hiw-arrow">→</div>
+
+      <div class="hiw-step">
+        <div class="hiw-num">02</div>
+        <div class="hiw-icon">🔐</div>
+        <h3 class="hiw-title">Log masuk</h3>
+        <p class="hiw-desc">Buka fail dalam mana-mana browser. Masukkan kata laluan anda. Anda boleh tukar kata laluan pada bila-bila masa.</p>
+      </div>
+
+      <div class="hiw-arrow">→</div>
+
+      <div class="hiw-step">
+        <div class="hiw-num">03</div>
+        <div class="hiw-icon">✍️</div>
+        <h3 class="hiw-title">Tulis & simpan</h3>
+        <p class="hiw-desc">Isi latihan terus dalam browser. Jawapan tersimpan automatik — tak akan hilang walaupun tutup browser.</p>
+      </div>
+
+      <div class="hiw-arrow">→</div>
+
+      <div class="hiw-step">
+        <div class="hiw-num">04</div>
+        <div class="hiw-icon">✦</div>
+        <h3 class="hiw-title">Dapat refleksi AI</h3>
+        <p class="hiw-desc">Selepas semua modul selesai, AI akan analisis jawapan anda dan hasilkan rumusan, corak, cadangan tindakan, dan surat masa depan — semua dalam Bahasa Melayu.</p>
+      </div>
+
+    </div>
+
+    <!-- Feature highlight boxes -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 56px;">
+
+      <div class="feat-box" style="border-left-color: var(--forest-mid);">
+        <div class="feat-box-icon">💾</div>
+        <div>
+          <div class="feat-box-title">Simpan automatik</div>
+          <div class="feat-box-desc">Jawapan anda tersimpan dalam peranti anda sendiri. Tiada data dihantar ke mana-mana. 100% peribadi.</div>
+        </div>
+      </div>
+
+      <div class="feat-box" style="border-left-color: var(--gold);">
+        <div class="feat-box-icon">🔒</div>
+        <div>
+          <div class="feat-box-title">Dilindungi kata laluan</div>
+          <div class="feat-box-desc">Setiap pelanggan dapat kata laluan unik. Anda boleh tukar kata laluan sendiri pada bila-bila masa dari dalam app.</div>
+        </div>
+      </div>
+
+      <div class="feat-box" style="border-left-color: var(--terra);">
+        <div class="feat-box-icon">🤖</div>
+        <div>
+          <div class="feat-box-title">AI Refleksi peribadi</div>
+          <div class="feat-box-desc">Bila selesai, AI baca semua jawapan anda dan hasilkan 4 bahagian refleksi mendalam yang ditulis khas untuk anda.</div>
+        </div>
+      </div>
+
+      <div class="feat-box" style="border-left-color: var(--sage);">
+        <div class="feat-box-icon">📱</div>
+        <div>
+          <div class="feat-box-title">Tanpa app, tanpa install</div>
+          <div class="feat-box-desc">Buka terus dalam Chrome, Safari, atau Firefox. Boleh guna di laptop, tablet, atau telefon. Offline sepenuhnya.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Comparison: PDF vs Interactive -->
+    <div style="margin-top: 56px; background: var(--warm-white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr;">
+        <div style="padding: 28px 32px; border-right: 1px solid var(--border);">
+          <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 16px;">Pakej Asas — PDF</div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--sage);">✓</span> Cetak & tulis tangan</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--sage);">✓</span> Bawa ke mana-mana</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--sage);">✓</span> 3 modul, 12 latihan</li>
+            <li style="font-size: 13px; color: #ccc; display: flex; gap: 8px;"><span>✗</span> Tiada simpan digital</li>
+            <li style="font-size: 13px; color: #ccc; display: flex; gap: 8px;"><span>✗</span> Tiada refleksi AI</li>
+            <li style="font-size: 13px; color: #ccc; display: flex; gap: 8px;"><span>✗</span> Tiada kata laluan</li>
+          </ul>
+        </div>
+        <div style="padding: 28px 32px; background: rgba(201,148,58,0.04);">
+          <div style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Pakej Lengkap — PDF + Interaktif ⭐</div>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Semua dalam Pakej Asas</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Workbook interaktif dalam browser</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Jawapan tersimpan automatik</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Dilindungi kata laluan unik</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Refleksi AI 4 bahagian</li>
+            <li style="font-size: 13px; color: var(--text-mid); display: flex; gap: 8px;"><span style="color: var(--gold);">✓</span> Cetak refleksi lengkap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science" id="sains">
+  <div class="section-tag">Berasaskan Sains</div>
+  <h2 class="section-h">Bukan sekadar<br><em>motivasi kosong.</em></h2>
+  <p class="section-desc">Program ini dibina atas kajian psikologi yang telah terbukti selama lebih dua dekad — bukan cerita inspirasi semata-mata.</p>
+  <div class="science-grid">
+    <div class="sci-card">
+      <div class="sci-num">47%</div>
+      <div class="sci-label">Pengurangan kadar berhenti dalam kalangan pelajar yang menggunakan program penulisan masa depan</div>
+    </div>
+    <div class="sci-card">
+      <div class="sci-num">10k+</div>
+      <div class="sci-label">Peserta global yang telah melengkapkan program penulisan reflektif serupa</div>
+    </div>
+    <div class="sci-card">
+      <div class="sci-num">4–6j</div>
+      <div class="sci-label">Masa yang diperlukan untuk mengubah cara anda melihat diri dan masa depan anda</div>
+    </div>
+    <div class="sci-card">
+      <div class="sci-num">20+</div>
+      <div class="sci-label">Tahun penyelidikan psikologi di sebalik kaedah penulisan ekspresif yang kami gunakan</div>
+    </div>
+  </div>
+  <div class="quote-block">
+    <q>Apabila manusia menulis tentang pengalaman emosional dengan teratur, mereka menunjukkan peningkatan yang ketara dalam kesihatan fizikal dan mental, termasuk pengurangan kebimbangan dan peningkatan prestasi kerja.</q>
+    <div class="quote-source">— Disimpulkan daripada kajian penulisan ekspresif, Universiti Texas</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonial">
+  <div class="section-tag">Apa Kata Mereka</div>
+  <h2 class="section-h">Orang sebenar.<br><em>Perubahan sebenar.</em></h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Saya rasa ini antara duit paling berbaloi yang saya belanjakan. Lepas habis Modul Masa Lalu, saya nampak kenapa saya selalu takut gagal — dan ia datang dari pengalaman waktu sekolah yang saya tak sedar pun dah lama saya bawa."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#EFF5F0;color:#2D4A33;">AS</div>
+        <div>
+          <div class="testi-name">Amir Syafiq</div>
+          <div class="testi-role">Eksekutif Pemasaran, Kuala Lumpur</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Saya dah banyak baca buku motivasi, tapi Pengarang Diri ni lain. Ia buat saya MENULIS, bukan sekadar membaca. Dan bila dah tulis, barulah betul-betul masuk dalam kepala dan hati."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#FBF5E8;color:#8B6520;">NR</div>
+        <div>
+          <div class="testi-name">Nur Rahimah</div>
+          <div class="testi-role">Pengurus Projek, Selangor</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Latihan Masa Depan buat saya sedar yang saya selama ni tak pernah berani tulis apa yang saya betul-betul nak. Sekarang ada pelan yang jelas. Rasa lega dan excited pada masa yang sama."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#FBF0EE;color:#7A3020;">HI</div>
+        <div>
+          <div class="testi-name">Haziq Irfan</div>
+          <div class="testi-role">Jurutera Perisian, Pulau Pinang</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="harga">
+  <div class="section-tag">Pilih Pakej Anda</div>
+  <h2 class="section-h">Pelaburan kecil.<br><em>Impak seumur hidup.</em></h2>
+  <div class="pricing-wrap">
+
+    <!-- Basic -->
+    <div class="price-card">
+      <div class="price-head">
+        <div class="price-tag-label">Pakej Asas</div>
+        <div class="price-name">Pengarang Diri PDF</div>
+        <div class="price-amount">
+          <span class="price-currency">RM</span>
+          <span class="price-value">27</span>
+          <span class="price-strike">RM45</span>
+        </div>
+        <div class="price-period" style="margin-top:4px;">Bayaran sekali sahaja</div>
+      </div>
+      <div class="price-body">
+        <ul class="price-features">
+          <li><span class="check">✓</span> PDF ebook lengkap (25+ halaman)</li>
+          <li><span class="check">✓</span> 3 modul dengan 12 latihan penulisan</li>
+          <li><span class="check">✓</span> Boleh cetak dan guna berulang kali</li>
+          <li><span class="check">✓</span> Panduan langkah demi langkah</li>
+          <li><span class="check">✓</span> Muat turun segera selepas bayar</li>
+        </ul>
+        <a href="#" class="btn-buy btn-buy-outline" href="https://molife.onpay.my/order/form/8">Dapatkan PDF — RM27</a>
+      </div>
+    </div>
+
+    <!-- Featured -->
+    <div class="price-card featured">
+      <div class="price-head">
+        <div class="best-value">⭐ Paling Popular</div>
+        <div class="price-tag-label">Pakej Lengkap</div>
+        <div class="price-name">PDF + Interaktif + Bonus</div>
+        <div class="price-amount">
+          <span class="price-currency">RM</span>
+          <span class="price-value">47</span>
+          <span class="price-strike">RM79</span>
+        </div>
+        <div class="price-period" style="margin-top:4px;">Bayaran sekali sahaja</div>
+      </div>
+      <div class="price-body">
+        <ul class="price-features">
+          <li><span class="check gold">✓</span> PDF ebook lengkap (25+ halaman)</li>
+          <li><span class="check gold">✓</span> Workbook interaktif — buka dalam browser, tanpa install</li>
+          <li><span class="check gold">✓</span> Dilindungi kata laluan unik (boleh tukar sendiri)</li>
+          <li><span class="check gold">✓</span> 3 modul dengan 12+ latihan penulisan</li>
+          <li><span class="check gold">✓</span> Jawapan tersimpan automatik — tak hilang walaupun tutup browser</li>
+          <li><span class="check gold">✓</span> Refleksi AI: rumusan, corak, cadangan tindakan + surat masa depan</li>
+          <li><span class="check gold">✓</span> <strong>BONUS:</strong> Panduan 7 Hari Pertama (PDF)</li>
+          <li><span class="check gold">✓</span> <strong>BONUS:</strong> Jadual semakan 6-bulan</li>
+          <li><span class="check gold">✓</span> Akses seumur hidup + kemaskini percuma</li>
+        </ul>
+        <a href="#" class="btn-buy btn-buy-gold" href="https://molife.onpay.my/order/form/8">Dapatkan Pakej Lengkap — RM47</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-tag">Soalan Lazim</div>
+  <h2 class="section-h" style="text-align:center;">Ada soalan?<br><em>Kami ada jawapan.</em></h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Berapa lama masa yang diperlukan untuk melengkapkan program ini?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Anggaran keseluruhan adalah 4–6 jam, bergantung kepada kedalaman penulisan anda. Kami cadangkan anda bahagikan kepada 3–4 sesi dalam tempoh seminggu — setiap sesi kira-kira 1–2 jam. Jangan tergesa-gesa.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Saya bukan jenis suka menulis. Adakah ini sesuai untuk saya?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Ya! Program ini bukan tentang penulisan kreatif atau sastera. Ia tentang pemikiran — anda hanya perlu jujur dengan diri sendiri. Tiada tanda baca yang sempurna diperlukan. Hanya kata-kata anda yang tulen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Apa bezanya dengan buku motivasi biasa?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Buku motivasi memberi inspirasi, tetapi Pengarang Diri meminta anda BERTINDAK melalui penulisan. Kajian menunjukkan bahawa proses menulis tentang diri sendiri menghasilkan perubahan yang lebih kekal berbanding sekadar membaca.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Adakah jawapan saya peribadi dan selamat?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Sepenuhnya. Workbook interaktif menyimpan jawapan anda dalam peranti anda sahaja (localStorage) — tiada data dihantar ke mana-mana pelayan. PDF pula adalah dokumen peribadi yang hanya ada pada anda.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Boleh saya gunakan program ini lebih dari sekali?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a">Sangat digalakkan! Kami cadangkan anda ulang program ini setiap 6–12 bulan. Setiap kali anda ulang, anda akan nampak pertumbuhan anda dan boleh mengemaskini matlamat yang telah berubah.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <h2>Siap untuk menulis<br>cerita hidup <em>yang anda nak</em>?</h2>
+  <p>Ribuan profesional muda telah mengubah cara mereka melihat diri dan masa depan melalui program seperti ini. Giliran anda.</p>
+  <div class="cta-actions">
+    <a href="https://molife.onpay.my/order/form/8" class="btn-cta-main" target="_blank">Mula Sekarang — RM47 Sahaja</a>
+    <a href="#faq" class="btn-cta-ghost">Ada soalan dulu? ↓</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Pengarang<span>Diri</span></div>
+      <div class="footer-tagline">Program pembangunan diri untuk profesional muda Malaysia.</div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Program</h4>
+      <a href="#modules">Modul Masa Lalu</a>
+      <a href="#modules">Modul Masa Kini</a>
+      <a href="#modules">Modul Masa Depan</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Syarikat</h4>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Blog</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Dasar</h4>
+      <a href="#">Terma & Syarat</a>
+      <a href="#">Dasar Privasi</a>
+      <a href="#">Dasar Bayaran Balik</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PengarangDiri.com.my · Hak cipta terpelihara.</span>
+    <span>Dibuat dengan ❤️ untuk Malaysia</span>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <div>
+      <div class="sticky-price">RM47 <span>RM79</span></div>
+      <div style="font-size:11px;color:var(--text-soft);">Pakej Lengkap · Jimat 40%</div>
+    </div>
+    <a href="https://molife.onpay.my/order/form/8" class="btn-primary" style="white-space:nowrap;" target="_blank">Dapatkan Sekarang</a>
+  </div>
+</div>
+
+<script>
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Animate elements on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.problem-card, .mod-card, .sci-card, .testi-card, .price-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

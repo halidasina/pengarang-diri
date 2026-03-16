@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengarang Diri — Panduan Lengkap Jelajahi Hidup Anda</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F9F5EE;
+    --warm-white: #FEFCF8;
+    --deep-forest: #1C2E20;
+    --forest: #2D4A33;
+    --sage: #6B8C6F;
+    --sage-light: #A8C4AC;
+    --gold: #C9943A;
+    --gold-light: #E8C87A;
+    --terracotta: #C4614A;
+    --terra-light: #E8A090;
+    --midnight: #1A1F35;
+    --lavender: #6B6FA8;
+    --text-dark: #1C1C1C;
+    --text-mid: #444444;
+    --text-soft: #777777;
+    --border: rgba(107,140,111,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    background: var(--deep-forest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,148,58,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,111,168,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    color: var(--warm-white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .cover h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .cover-subtitle {
+    font-size: 16px;
+    color: var(--sage-light);
+    max-width: 420px;
+    margin: 16px auto 48px;
+    font-weight: 300;
+  }
+
+  .cover-modules {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 56px;
+  }
+
+  .cover-module-pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 40px;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: var(--sage-light);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .cover-module-pill:hover {
+    background: rgba(201,148,58,0.15);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  .scroll-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+  }
+
+  .scroll-arrow {
+    width: 24px; height: 24px;
+    border-right: 1.5px solid rgba(255,255,255,0.3);
+    border-bottom: 1.5px solid rgba(255,255,255,0.3);
+    transform: rotate(45deg);
+    margin-top: 4px;
+  }
+
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(249,245,238,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 56px;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--forest);
+    font-weight: 600;
+  }
+
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    background: rgba(45,74,51,0.06);
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  .nav-tab {
+    padding: 6px 16px;
+    font-size: 13px;
+    color: var(--text-soft);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 400;
+    border: none;
+    background: none;
+  }
+
+  .nav-tab.active {
+    background: var(--forest);
+    color: white;
+    font-weight: 500;
+  }
+
+  .nav-tab:hover:not(.active) {
+    color: var(--forest);
+    background: rgba(45,74,51,0.1);
+  }
+
+  .progress-bar-wrap {
+    width: 80px;
+    height: 4px;
+    background: rgba(45,74,51,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* INTRO PAGE */
+  .intro-hero {
+    background: var(--warm-white);
+    padding: 80px 40px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-badge {
+    display: inline-block;
+    padding: 5px 16px;
+    background: rgba(45,74,51,0.08);
+    color: var(--forest);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .section-badge.gold { background: rgba(201,148,58,0.1); color: #8B6520; }
+  .section-badge.terra { background: rgba(196,97,74,0.1); color: #7A3020; }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    color: var(--deep-forest);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* CARDS */
+  .content-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover { box-shadow: 0 4px 24px rgba(28,46,32,0.07); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .card-icon.forest { background: rgba(45,74,51,0.1); }
+  .card-icon.gold { background: rgba(201,148,58,0.12); }
+  .card-icon.terra { background: rgba(196,97,74,0.1); }
+  .card-icon.lavender { background: rgba(107,111,168,0.1); }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--deep-forest);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .card-meta {
+    font-size: 12px;
+    color: var(--text-soft);
+    letter-spacing: 0.5px;
+  }
+
+  .card p { font-size: 15px; color: var(--text-mid); font-weight: 300; }
+
+  .highlight-box {
+    background: var(--deep-forest);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    color: var(--warm-white);
+  }
+
+  .highlight-box .quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .highlight-box .attribution {
+    font-size: 13px;
+    color: var(--sage-light);
+    font-weight: 300;
+  }
+
+  /* MODUL CARDS */
+  .modul-intro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+  }
+
+  .modul-card {
+    border-radius: 14px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .modul-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+
+  .modul-card.lalu { background: var(--deep-forest); color: white; }
+  .modul-card.kini { background: var(--gold); color: var(--deep-forest); }
+  .modul-card.depan { background: var(--terracotta); color: white; }
+
+  .modul-card .num {
+    font-size: 48px;
+    font-family: 'Playfair Display', serif;
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .modul-card h3 { font-size: 20px; font-family: 'Playfair Display', serif; margin-bottom: 8px; font-weight: 600; }
+  .modul-card p { font-size: 13px; opacity: 0.75; font-weight: 300; }
+
+  /* EXERCISES */
+  .exercise {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .exercise-header {
+    padding: 20px 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background 0.15s;
+  }
+
+  .exercise-header:hover { background: rgba(45,74,51,0.03); }
+
+  .ex-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .ex-num.lalu { background: var(--deep-forest); color: white; }
+  .ex-num.kini { background: var(--gold); color: var(--deep-forest); }
+  .ex-num.depan { background: var(--terracotta); color: white; }
+
+  .ex-title { font-size: 15px; font-weight: 500; color: var(--text-dark); flex: 1; }
+  .ex-arrow { font-size: 12px; color: var(--text-soft); transition: transform 0.2s; }
+  .exercise.open .ex-arrow { transform: rotate(90deg); }
+
+  .exercise-body {
+    display: none;
+    padding: 0 28px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .exercise.open .exercise-body { display: block; }
+
+  .exercise-body p {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin: 16px 0 12px;
+    font-weight: 300;
+  }
+
+  .writing-box {
+    width: 100%;
+    min-height: 120px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--cream);
+    resize: vertical;
+    transition: border-color 0.2s;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .writing-box:focus {
+    outline: none;
+    border-color: var(--sage);
+    background: var(--warm-white);
+  }
+
+  .writing-box::placeholder { color: var(--text-soft); opacity: 0.6; }
+
+  .save-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: var(--forest);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+
+  .save-btn:hover { background: var(--deep-forest); }
+
+  .save-btn.gold-btn { background: var(--gold); color: var(--deep-forest); }
+  .save-btn.gold-btn:hover { background: #B5832A; color: white; }
+
+  .save-btn.terra-btn { background: var(--terracotta); color: white; }
+  .save-btn.terra-btn:hover { background: #A54030; }
+
+  .saved-note {
+    display: none;
+    font-size: 12px;
+    color: var(--sage);
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  /* TIPS */
+  .tip {
+    background: rgba(107,140,111,0.08);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: var(--forest);
+    font-weight: 400;
+  }
+
+  /* REFLECTION SUMMARY */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 32px 0;
+  }
+
+  .summary-card {
+    border-radius: 12px;
+    padding: 20px 18px;
+    text-align: center;
+  }
+
+  .summary-card.lalu { background: rgba(28,46,32,0.06); }
+  .summary-card.kini { background: rgba(201,148,58,0.1); }
+  .summary-card.depan { background: rgba(196,97,74,0.08); }
+
+  .summary-card .count {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .summary-card.lalu .count { color: var(--forest); }
+  .summary-card.kini .count { color: #8B6520; }
+  .summary-card.depan .count { color: var(--terracotta); }
+
+  .summary-card .label { font-size: 12px; color: var(--text-soft); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin: 24px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -27px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--warm-white);
+    box-shadow: 0 0 0 1px var(--sage);
+    background: var(--sage-light);
+  }
+
+  .timeline-dot.gold { background: var(--gold-light); box-shadow: 0 0 0 1px var(--gold); }
+  .timeline-dot.terra { background: var(--terra-light); box-shadow: 0 0 0 1px var(--terracotta); }
+
+  .timeline-item h4 { font-size: 14px; font-weight: 500; color: var(--text-dark); margin-bottom: 4px; }
+  .timeline-item p { font-size: 13px; color: var(--text-soft); font-weight: 300; }
+
+  /* SECTION divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--deep-forest);
+    padding: 48px 40px;
+    text-align: center;
+    color: var(--sage-light);
+  }
+
+  .footer h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--warm-white);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .footer p { font-size: 14px; font-weight: 300; max-width: 400px; margin: 0 auto 24px; }
+
+  .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+  .footer-link {
+    font-size: 13px;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  /* PRINT-STYLE CHAPTER HEADER */
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .chapter-num-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    line-height: 1;
+    font-weight: 600;
+    opacity: 0.08;
+    color: var(--deep-forest);
+    flex-shrink: 0;
+  }
+
+  .chapter-info { flex: 1; }
+  .chapter-info .label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-soft); margin-bottom: 6px; }
+  .chapter-info h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--deep-forest); font-weight: 600; }
+
+  /* WORD COUNTER */
+  .word-count { font-size: 11px; color: var(--text-soft); margin-top: 6px; text-align: right; }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .nav { padding: 0 20px; }
+    .content-wrap { padding: 40px 20px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .cover { padding: 60px 24px; }
+  }
+
+  /* INTRO ANIMATION */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+  .cover > * { animation: fadeUp 0.7s ease both; }
+  .cover .cover-label { animation-delay: 0.1s; }
+  .cover h1 { animation-delay: 0.25s; }
+  .cover .cover-subtitle { animation-delay: 0.4s; }
+  .cover .cover-modules { animation-delay: 0.55s; }
+  .cover .scroll-cta { animation-delay: 0.7s; }
+  /* AI REFLECTION STYLES */
+  .ai-spinner {
+    width: 44px; height: 44px;
+    border: 3px solid rgba(107,111,168,0.2);
+    border-top-color: var(--lavender);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    margin: 0 auto;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ai-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 16px rgba(28,46,32,0.06);
+  }
+  .ai-card-head {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .ai-card-icon { font-size: 22px; flex-shrink: 0; }
+  .ai-card-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 3px;
+  }
+  .ai-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .ai-card-body {
+    padding: 28px;
+    background: var(--warm-white);
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .ai-card-body strong { font-weight: 500; color: var(--text-dark); }
+  .ai-card-body ul { padding-left: 20px; margin: 10px 0; }
+  .ai-card-body ul li { margin-bottom: 8px; }
+  .ai-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 2;
+    background: var(--cream);
+  }
+  .ai-streaming { opacity: 0.85; }
+  .ai-cursor::after {
+    content: "▋";
+    animation: blink-cursor 0.7s step-end infinite;
+    color: var(--lavender);
+  }
+  @keyframes blink-cursor { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* ── LOGIN / PASSWORD SCREEN ────────────────────────── */
+  #app-content { display: none; }
+
+  #login-screen {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--deep-forest);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  #login-screen::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,148,58,0.09) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #login-screen::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,111,168,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .login-box {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 380px;
+  }
+  .login-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 600; color: #fff;
+    margin-bottom: 4px;
+  }
+  .login-logo em { color: var(--gold-light); font-style: italic; font-weight: 400; }
+  .login-tagline {
+    font-size: 13px; color: var(--sage-light);
+    font-weight: 300; margin-bottom: 40px;
+  }
+  .login-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px; padding: 36px 32px;
+  }
+  .login-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; color: #fff;
+    margin-bottom: 6px; font-weight: 600;
+  }
+  .login-card p {
+    font-size: 13px; color: var(--sage-light);
+    margin-bottom: 28px; font-weight: 300;
+  }
+  .input-group { margin-bottom: 16px; text-align: left; }
+  .input-group label {
+    display: block; font-size: 11px;
+    color: var(--sage-light); font-weight: 500;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pw-wrap { position: relative; }
+  .pw-input {
+    width: 100%; padding: 13px 44px 13px 16px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; color: #fff;
+    font-size: 15px; font-family: 'DM Sans', sans-serif;
+    transition: border-color .2s, background .2s;
+    outline: none;
+    letter-spacing: 2px;
+  }
+  .pw-input::placeholder { color: rgba(255,255,255,0.25); letter-spacing: 0; }
+  .pw-input:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.1);
+  }
+  .pw-toggle {
+    position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.35); font-size: 16px;
+    transition: color .2s; padding: 0;
+  }
+  .pw-toggle:hover { color: rgba(255,255,255,0.7); }
+  .login-error {
+    font-size: 12px; color: var(--terra-light);
+    margin-top: -8px; margin-bottom: 14px;
+    display: none; text-align: left;
+  }
+  .login-error.show { display: block; }
+  .btn-login {
+    width: 100%; padding: 14px;
+    background: var(--gold); color: var(--deep-forest);
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: background .2s, transform .15s;
+    margin-top: 4px;
+  }
+  .btn-login:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-login:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .login-footer {
+    margin-top: 24px; font-size: 12px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── CHANGE PASSWORD MODAL ─────────────────────────── */
+  #pw-modal-overlay {
+    display: none; position: fixed; inset: 0;
+    z-index: 8000; background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  #pw-modal-overlay.show { display: flex; }
+  .pw-modal {
+    background: var(--warm-white);
+    border-radius: 20px; padding: 36px 32px;
+    width: 100%; max-width: 400px;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+  }
+  .pw-modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--deep-forest);
+    margin-bottom: 6px; font-weight: 600;
+  }
+  .pw-modal > p {
+    font-size: 13px; color: var(--text-soft);
+    margin-bottom: 24px; font-weight: 300;
+  }
+  .modal-input-group { margin-bottom: 16px; text-align: left; }
+  .modal-input-group label {
+    display: block; font-size: 11px; color: var(--text-soft);
+    font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .modal-input {
+    width: 100%; padding: 12px 44px 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px; font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark); background: var(--cream);
+    outline: none; transition: border-color .2s;
+    letter-spacing: 1px;
+  }
+  .modal-input:focus { border-color: var(--sage); background: var(--warm-white); }
+  .modal-pw-wrap { position: relative; }
+  .modal-pw-toggle {
+    position: absolute; right: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none; cursor: pointer;
+    color: var(--text-soft); font-size: 15px;
+    transition: color .2s; padding: 0;
+  }
+  .modal-pw-toggle:hover { color: var(--text-dark); }
+  .pw-strength {
+    height: 3px; border-radius: 2px;
+    margin-top: 6px; transition: all .3s;
+    background: var(--border);
+  }
+  .pw-strength-label {
+    font-size: 10px; color: var(--text-soft);
+    margin-top: 4px; text-align: right;
+  }
+  .modal-error {
+    font-size: 12px; color: var(--terracotta);
+    margin-bottom: 12px; display: none;
+  }
+  .modal-error.show { display: block; }
+  .modal-success {
+    font-size: 12px; color: var(--sage);
+    margin-bottom: 12px; display: none;
+  }
+  .modal-success.show { display: block; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 4px; }
+  .btn-modal-cancel {
+    flex: 1; padding: 12px;
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 10px; font-size: 14px; font-weight: 500;
+    font-family: 'DM Sans', sans-serif; cursor: pointer;
+    color: var(--text-mid); transition: all .2s;
+  }
+  .btn-modal-cancel:hover { border-color: var(--sage); color: var(--forest); }
+  .btn-modal-save {
+    flex: 2; padding: 12px;
+    background: var(--forest); border: none;
+    border-radius: 10px; font-size: 14px; font-weight: 600;
+    font-family: 'DM Sans', sans-serif; cursor: pointer;
+    color: #fff; transition: background .2s;
+  }
+  .btn-modal-save:hover { background: var(--deep-forest); }
+  .btn-modal-save:disabled { opacity: 0.6; cursor: not-allowed; }
+  .modal-close-x {
+    position: absolute; top: 16px; right: 16px;
+    background: none; border: none; cursor: pointer;
+    font-size: 20px; color: var(--text-soft);
+    transition: color .2s; padding: 4px;
+  }
+  .modal-close-x:hover { color: var(--text-dark); }
+
+  /* ── NAV PASSWORD BUTTON ───────────────────────────── */
+  .nav-pw-btn {
+    background: none; border: 1px solid var(--border);
+    border-radius: 8px; padding: 5px 12px;
+    font-size: 12px; color: var(--text-soft);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all .2s; white-space: nowrap;
+  }
+  .nav-pw-btn:hover { border-color: var(--sage); color: var(--forest); }
+
+
+
+  /* ── GLOBAL FONT SIZE BUMP ── */
+  body { font-size: 17px; }
+
+  /* Nav */
+  .nav-brand { font-size: 19px; }
+  .nav-tab { font-size: 15px; padding: 8px 20px; }
+  .nav-pw-btn { font-size: 13px; }
+
+  /* Cover */
+  .cover-label { font-size: 13px; }
+  .cover-subtitle { font-size: 18px; }
+  .cover-module-pill { font-size: 15px; }
+
+  /* Section badges & titles */
+  .section-badge { font-size: 13px; }
+  h2.section-title { font-size: clamp(32px, 5vw, 52px); }
+  .section-desc { font-size: 18px; }
+
+  /* Cards */
+  .card h3 { font-size: 22px; }
+  .card p { font-size: 16px; }
+  .card-meta { font-size: 14px; }
+
+  /* Chapter headers */
+  .chapter-info h2 { font-size: 32px; }
+  .chapter-info .label { font-size: 13px; }
+
+  /* Exercises */
+  .ex-title { font-size: 17px; }
+  .exercise-body p { font-size: 16px; }
+
+  /* Writing box */
+  .writing-box { font-size: 16px; line-height: 1.75; }
+  .writing-box::placeholder { font-size: 15px; }
+  .word-count { font-size: 13px; }
+
+  /* Buttons */
+  .save-btn { font-size: 15px; }
+
+  /* Tips */
+  .tip { font-size: 15px; }
+
+  /* Timeline */
+  .timeline-item h4 { font-size: 16px; }
+  .timeline-item p { font-size: 14px; }
+
+  /* Summary cards */
+  .summary-card .count { font-size: 36px; }
+  .summary-card .label { font-size: 14px; }
+
+  /* Highlight box */
+  .highlight-box .quote { font-size: 22px; }
+  .highlight-box .attribution { font-size: 14px; }
+
+  /* Modul cards */
+  .modul-card h3 { font-size: 22px; }
+  .modul-card p { font-size: 15px; }
+
+  /* Footer */
+  .footer h3 { font-size: 26px; }
+  .footer p { font-size: 15px; }
+  .footer-link { font-size: 15px; }
+
+  /* AI cards */
+  .ai-card-title { font-size: 20px; }
+  .ai-card-label { font-size: 12px; }
+  .ai-card-body { font-size: 16px; line-height: 1.85; }
+  .ai-letter { font-size: 16px; line-height: 2.1; }
+
+  /* Login screen */
+  .login-logo { font-size: 36px; }
+  .login-tagline { font-size: 15px; }
+  .login-card h2 { font-size: 22px; }
+  .login-card p { font-size: 15px; }
+  .pw-input { font-size: 16px; }
+  .btn-login { font-size: 16px; }
+
+  /* Modal */
+  .pw-modal h3 { font-size: 24px; }
+  .pw-modal > p { font-size: 15px; }
+  .modal-input-group label { font-size: 12px; }
+  .modal-input { font-size: 15px; }
+  .btn-modal-cancel, .btn-modal-save { font-size: 15px; }
+  .pw-strength-label { font-size: 12px; }
+
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">Pengarang <em>Diri</em></div>
+    <div class="login-tagline">Program Pembangunan Diri untuk Profesional Muda Malaysia</div>
+    <div class="login-card">
+      <h2>Selamat Datang Semula</h2>
+      <p>Masukkan kata laluan anda untuk meneruskan perjalanan.</p>
+      <div class="input-group">
+        <label>Kata Laluan</label>
+        <div class="pw-wrap">
+          <input type="password" id="pw-login-input" class="pw-input" placeholder="Masukkan kata laluan..." autocomplete="current-password">
+          <button class="pw-toggle" onclick="togglePwVis('pw-login-input','toggle-login')" id="toggle-login" type="button">👁</button>
+        </div>
+      </div>
+      <div class="login-error" id="login-error"></div>
+      <button class="btn-login" id="btn-do-login" onclick="handleLogin()">Masuk →</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- CHANGE PASSWORD MODAL -->
+<div id="pw-modal-overlay">
+  <div class="pw-modal">
+    <button class="modal-close-x" onclick="closeChangePasswordModal()">✕</button>
+    <h3>Tukar Kata Laluan</h3>
+    <p>Pilih kata laluan yang kuat dan mudah diingati.</p>
+
+    <div class="modal-input-group">
+      <label>Kata Laluan Semasa</label>
+      <div class="modal-pw-wrap">
+        <input type="password" id="modal-old-pw" class="modal-input" placeholder="••••••••" autocomplete="current-password">
+        <button class="modal-pw-toggle" onclick="togglePwVis('modal-old-pw','toggle-old')" id="toggle-old" type="button">👁</button>
+      </div>
+    </div>
+
+    <div class="modal-input-group">
+      <label>Kata Laluan Baru</label>
+      <div class="modal-pw-wrap">
+        <input type="password" id="modal-new-pw" class="modal-input" placeholder="Sekurang-kurangnya 6 aksara" autocomplete="new-password">
+        <button class="modal-pw-toggle" onclick="togglePwVis('modal-new-pw','toggle-new')" id="toggle-new" type="button">👁</button>
+      </div>
+      <div class="pw-strength" id="pw-strength-bar" style="width:0%"></div>
+      <div class="pw-strength-label" id="pw-strength-label"></div>
+    </div>
+
+    <div class="modal-input-group">
+      <label>Sahkan Kata Laluan Baru</label>
+      <div class="modal-pw-wrap">
+        <input type="password" id="modal-confirm-pw" class="modal-input" placeholder="Taip semula kata laluan baru" autocomplete="new-password">
+        <button class="modal-pw-toggle" onclick="togglePwVis('modal-confirm-pw','toggle-conf')" id="toggle-conf" type="button">👁</button>
+      </div>
+    </div>
+
+    <div class="modal-error" id="modal-error"></div>
+    <div class="modal-success" id="modal-success"></div>
+
+    <div class="modal-actions">
+      <button class="btn-modal-cancel" onclick="closeChangePasswordModal()">Batal</button>
+      <button class="btn-modal-save" id="btn-save-pw" onclick="handleChangePassword()">Simpan Kata Laluan</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP CONTENT (hidden until logged in) -->
+<div id="app-content">
+
+<!-- COVER -->
+<div class="cover" id="cover">
+  <div class="cover-label">Program Pembangunan Diri</div>
+  <h1>Pengarang<br><em>Diri</em></h1>
+  <p class="cover-subtitle">Jelajah masa lalu anda, kenali diri anda hari ini, dan reka bentuk masa depan yang bermakna.</p>
+  <div class="cover-modules">
+    <span class="cover-module-pill">📖 Modul 1 — Masa Lalu</span>
+    <span class="cover-module-pill">🔍 Modul 2 — Masa Kini</span>
+    <span class="cover-module-pill">🌱 Modul 3 — Masa Depan</span>
+  </div>
+  <div class="scroll-cta">
+    Mula Perjalanan
+    <div class="scroll-arrow"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav">
+  <div class="nav-brand">Pengarang Diri</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('intro')">Pengenalan</button>
+    <button class="nav-tab" onclick="showSection('lalu')">Masa Lalu</button>
+    <button class="nav-tab" onclick="showSection('kini')">Masa Kini</button>
+    <button class="nav-tab" onclick="showSection('depan')">Masa Depan</button>
+    <button class="nav-tab" onclick="showSection('refleksi')">Refleksi</button>
+  </div>
+  <button class="nav-pw-btn" onclick="openChangePasswordModal()">🔑 Tukar Kata Laluan</button>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressBar"></div>
+  </div>
+</nav>
+
+<!-- SECTION: INTRO -->
+<div class="section active" id="s-intro">
+  <div class="intro-hero">
+    <div class="section-badge">Selamat Datang</div>
+    <h2 class="section-title">Mengapa anda perlu<br>menulis tentang diri anda?</h2>
+    <p class="section-desc">Kajian psikologi selama dekad membuktikan — mereka yang meluangkan masa menulis tentang diri mereka menjadi lebih gembira, produktif, dan lebih jelas arah hidup mereka.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon forest">🧠</div>
+        <div>
+          <h3>Sains di Sebalik Penulisan Reflektif</h3>
+          <div class="card-meta">Diperkukuh oleh kajian dari Universiti Harvard & McGill</div>
+        </div>
+      </div>
+      <p>Apabila anda menulis dengan teliti tentang pengalaman hidup — yang baik dan yang buruk — otak anda mula memproses kenangan yang belum selesai. Ini mengurangkan kebimbangan, meningkatkan fokus, dan membantu anda melihat corak yang selama ini tersembunyi.</p>
+    </div>
+
+    <div class="highlight-box">
+      <div class="quote">"Kamu tidak boleh tahu ke mana hendak pergi, kalau kamu tidak tahu dari mana datangnya kamu."</div>
+      <div class="attribution">— Prinsip asas program Pengarang Diri</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon gold">📊</div>
+        <div>
+          <h3>Apa yang Telah Terbukti</h3>
+          <div class="card-meta">Data dari lebih 10,000 peserta</div>
+        </div>
+      </div>
+      <p>Peserta yang melengkapkan program penulisan reflektif melaporkan: kejelasan tujuan yang lebih tinggi, penurunan kecemasan tentang masa depan, peningkatan prestasi kerja, dan perhubungan yang lebih bermakna.</p>
+    </div>
+
+    <div class="modul-intro">
+      <div class="modul-card lalu" onclick="showSection('lalu')">
+        <div class="num">01</div>
+        <h3>Masa Lalu</h3>
+        <p>Fahami pengalaman yang membentuk siapa anda hari ini</p>
+      </div>
+      <div class="modul-card kini" onclick="showSection('kini')">
+        <div class="num">02</div>
+        <h3>Masa Kini</h3>
+        <p>Kenali kekuatan dan kelemahan anda dengan jujur</p>
+      </div>
+      <div class="modul-card depan" onclick="showSection('depan')">
+        <div class="num">03</div>
+        <h3>Masa Depan</h3>
+        <p>Reka bentuk kehidupan ideal anda 3–5 tahun dari sekarang</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon lavender">⏱️</div>
+        <div>
+          <h3>Cara Menggunakan Ebook Ini</h3>
+          <div class="card-meta">Anggaran: 4–6 jam, boleh dibahagikan kepada beberapa sesi</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <h4>Luangkan masa yang tenang</h4>
+          <p>Cari tempat yang sunyi. Matikan notifikasi. Beri diri anda ruang untuk berfikir dengan dalam.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot gold"></div>
+          <h4>Tulis dengan jujur, bukan sempurna</h4>
+          <p>Tiada siapa yang akan membaca ini melainkan anda sendiri. Jangan tapis perasaan anda.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot terra"></div>
+          <h4>Simpan dan ulas semula</h4>
+          <p>Jawapan anda disimpan dalam peranti ini. Kembali setelah beberapa hari untuk melihat perspektif baru.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; padding: 24px 0;">
+      <button class="save-btn" style="padding: 14px 40px; font-size: 15px;" onclick="showSection('lalu')">Mulakan Modul Pertama →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: MASA LALU -->
+<div class="section" id="s-lalu">
+  <div class="intro-hero">
+    <div class="section-badge">Modul 01</div>
+    <h2 class="section-title">Masa Lalu</h2>
+    <p class="section-desc">Pengalaman silam anda — baik atau pahit — adalah bahan bakar yang membentuk siapa anda. Kini, tiba masanya untuk memahaminya.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="chapter-header">
+      <div class="chapter-num-big">01</div>
+      <div class="chapter-info">
+        <div class="label">Modul Satu</div>
+        <h2>Autobiografi Saya</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Bahagikan hidup anda kepada <strong>6 zaman</strong> — tempoh yang berbeza dari sudut pengalaman anda. Contoh: zaman kanak-kanak, zaman sekolah, zaman remaja, dsb. Untuk setiap zaman, kenalpasti peristiwa paling signifikan.</p>
+      <div class="tip">💡 Tip: Anda tidak perlu menulis zaman mengikut umur. Pilih titik perubahan yang bermakna buat anda — contohnya "semasa pindah ke KL" atau "selepas tamat universiti."</div>
+    </div>
+
+    <!-- EXERCISES MASA LALU -->
+
+    <div class="exercise" id="ex-lalu-1">
+      <div class="exercise-header" onclick="toggleEx('lalu-1')">
+        <div class="ex-num lalu">1</div>
+        <div class="ex-title">Zaman Pertama — Kanak-kanak awal saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Gambarkan diri anda semasa kecil. Apakah kenangan paling awal yang anda ingati? Siapakah orang-orang penting dalam hidup anda pada masa itu? Apakah perasaan dominan yang anda kenang dari zaman ini?</p>
+        <textarea class="writing-box" id="tx-lalu-1" placeholder="Tulis tentang kenangan awal anda di sini..." oninput="updateCount('lalu-1')"></textarea>
+        <div class="word-count" id="wc-lalu-1">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn" onclick="saveAnswer('lalu-1')">Simpan</button>
+          <span class="saved-note" id="saved-lalu-1">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-lalu-2">
+      <div class="exercise-header" onclick="toggleEx('lalu-2')">
+        <div class="ex-num lalu">2</div>
+        <div class="ex-title">Zaman Kedua — Zaman sekolah saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Apakah pengalaman paling membentuk anda semasa di sekolah? Adakah terdapat guru, kawan, atau peristiwa yang mengubah pandangan anda tentang diri sendiri atau dunia? Apakah yang anda pelajari tentang diri anda sendiri?</p>
+        <textarea class="writing-box" id="tx-lalu-2" placeholder="Ceritakan pengalaman sekolah anda..." oninput="updateCount('lalu-2')"></textarea>
+        <div class="word-count" id="wc-lalu-2">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn" onclick="saveAnswer('lalu-2')">Simpan</button>
+          <span class="saved-note" id="saved-lalu-2">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-lalu-3">
+      <div class="exercise-header" onclick="toggleEx('lalu-3')">
+        <div class="ex-num lalu">3</div>
+        <div class="ex-title">Peristiwa yang paling membentuk saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Dari semua pengalaman dalam hidup anda, pilih <strong>tiga peristiwa</strong> yang paling mempengaruhi siapa anda sekarang. Ia boleh positif atau negatif. Terangkan: Apa yang berlaku? Bagaimana anda berasa? Apa yang anda pelajari?</p>
+        <div class="tip">💡 Kenangan yang masih mengganggu fikiran anda setelah bertahun-tahun adalah tanda ia belum sepenuhnya diproses. Ini tempat yang tepat untuk mula.</div>
+        <textarea class="writing-box" id="tx-lalu-3" placeholder="Peristiwa 1: ..." style="min-height: 180px;" oninput="updateCount('lalu-3')"></textarea>
+        <div class="word-count" id="wc-lalu-3">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn" onclick="saveAnswer('lalu-3')">Simpan</button>
+          <span class="saved-note" id="saved-lalu-3">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-lalu-4">
+      <div class="exercise-header" onclick="toggleEx('lalu-4')">
+        <div class="ex-num lalu">4</div>
+        <div class="ex-title">Warisan yang saya bawa ke hari ini</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Setelah merenung semua zaman di atas, apakah corak yang anda nampak? Apakah kepercayaan tentang diri anda yang anda bawa dari masa lalu — dan adakah ia masih benar dan berguna hari ini?</p>
+        <textarea class="writing-box" id="tx-lalu-4" placeholder="Corak dan kepercayaan yang saya sedar dari masa lalu saya..." oninput="updateCount('lalu-4')"></textarea>
+        <div class="word-count" id="wc-lalu-4">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn" onclick="saveAnswer('lalu-4')">Simpan</button>
+          <span class="saved-note" id="saved-lalu-4">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="quote">"Anda tidak boleh meletakkan bagasi yang tidak pernah anda buka."</div>
+      <div class="attribution">— Prinsip pemprosesan trauma melalui penulisan</div>
+    </div>
+
+    <div style="text-align:right; padding-top: 16px;">
+      <button class="save-btn gold-btn" style="padding: 12px 32px;" onclick="showSection('kini')">Teruskan ke Masa Kini →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: MASA KINI -->
+<div class="section" id="s-kini">
+  <div class="intro-hero">
+    <div class="section-badge gold">Modul 02</div>
+    <h2 class="section-title">Masa Kini</h2>
+    <p class="section-desc">Kenali siapa anda hari ini — kelemahan yang menghambat anda dan kekuatan yang belum sepenuhnya anda gunakan.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="chapter-header">
+      <div class="chapter-num-big" style="color: #C9943A;">02</div>
+      <div class="chapter-info">
+        <div class="label">Modul Dua</div>
+        <h2>Siapa Saya Sekarang</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon terra">⚠️</div>
+        <div><h3>Bahagian A — Kelemahan Saya</h3></div>
+      </div>
+      <p>Mengenal pasti kelemahan bukan bermaksud menghukum diri. Ia bermaksud menjadi cukup berani untuk melihat dengan jelas perkara yang menghalang anda dari kehidupan yang lebih baik.</p>
+    </div>
+
+    <div class="exercise" id="ex-kini-1">
+      <div class="exercise-header" onclick="toggleEx('kini-1')">
+        <div class="ex-num kini">1</div>
+        <div class="ex-title">Tabiat atau tingkah laku yang merugikan saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Apakah tabiat yang anda sedar sedang menghalang kemajuan anda? Ia boleh berkaitan kerja, kesihatan, perhubungan, atau pemikiran. Terangkan tabiat tersebut, dan bagaimana ia memberi kesan kepada hidup anda.</p>
+        <div class="tip">💡 Contoh: terlalu banyak menunda kerja, tidak boleh katakan 'tidak' kepada orang lain, mengelak daripada konflik, menghabiskan masa berlebihan di media sosial.</div>
+        <textarea class="writing-box" id="tx-kini-1" placeholder="Tabiat dan tingkah laku yang saya ingin ubah..." oninput="updateCount('kini-1')"></textarea>
+        <div class="word-count" id="wc-kini-1">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn gold-btn" onclick="saveAnswer('kini-1')">Simpan</button>
+          <span class="saved-note" id="saved-kini-1">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-kini-2">
+      <div class="exercise-header" onclick="toggleEx('kini-2')">
+        <div class="ex-num kini">2</div>
+        <div class="ex-title">Apa yang mencetuskan tingkah laku negatif saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Untuk setiap kelemahan yang anda kenal pasti, fikirkan: apakah yang biasanya <em>mencetuskannya</em>? Situasi apa, perasaan apa, atau orang mana yang sering mengundang tabiat negatif anda muncul?</p>
+        <textarea class="writing-box" id="tx-kini-2" placeholder="Pemicu kelemahan saya adalah..." oninput="updateCount('kini-2')"></textarea>
+        <div class="word-count" id="wc-kini-2">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn gold-btn" onclick="saveAnswer('kini-2')">Simpan</button>
+          <span class="saved-note" id="saved-kini-2">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon forest">🌟</div>
+        <div><h3>Bahagian B — Kekuatan Saya</h3></div>
+      </div>
+      <p>Ramai daripada kita lebih cepat melihat kelemahan diri berbanding kekuatan. Bahagian ini membantu anda mengenal dan mengakui apa yang anda sudah ada — dan bagaimana anda boleh gunakannya dengan lebih baik.</p>
+    </div>
+
+    <div class="exercise" id="ex-kini-3">
+      <div class="exercise-header" onclick="toggleEx('kini-3')">
+        <div class="ex-num kini">3</div>
+        <div class="ex-title">Kekuatan dan bakat semulajadi saya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Apakah perkara yang anda lakukan dengan mudah yang orang lain rasa sukar? Apakah yang orang sering puja dalam diri anda? Apakah situasi di mana anda rasa paling "hidup" dan berkemampuan?</p>
+        <div class="tip">💡 Fikir tentang kali terakhir seseorang berkata "Syabas" atau "Terima kasih" kepada anda dengan tulus. Apa yang anda lakukan?</div>
+        <textarea class="writing-box" id="tx-kini-3" placeholder="Kekuatan dan bakat yang saya miliki..." oninput="updateCount('kini-3')"></textarea>
+        <div class="word-count" id="wc-kini-3">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn gold-btn" onclick="saveAnswer('kini-3')">Simpan</button>
+          <span class="saved-note" id="saved-kini-3">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-kini-4">
+      <div class="exercise-header" onclick="toggleEx('kini-4')">
+        <div class="ex-num kini">4</div>
+        <div class="ex-title">Kekuatan yang belum saya gunakan sepenuhnya</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Adakah terdapat bakat atau kelebihan dalam diri anda yang anda rasa belum digunakan atau dikembangkan? Mengapa ia tidak digunakan? Apakah yang menghalang anda dari memanfaatkannya sepenuhnya?</p>
+        <textarea class="writing-box" id="tx-kini-4" placeholder="Potensi yang belum saya realisasikan..." oninput="updateCount('kini-4')"></textarea>
+        <div class="word-count" id="wc-kini-4">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn gold-btn" onclick="saveAnswer('kini-4')">Simpan</button>
+          <span class="saved-note" id="saved-kini-4">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:right; padding-top: 16px;">
+      <button class="save-btn terra-btn" style="padding: 12px 32px;" onclick="showSection('depan')">Teruskan ke Masa Depan →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: MASA DEPAN -->
+<div class="section" id="s-depan">
+  <div class="intro-hero">
+    <div class="section-badge terra">Modul 03</div>
+    <h2 class="section-title">Masa Depan</h2>
+    <p class="section-desc">Reka bentuk kehidupan ideal anda. Bukan sekadar impian — tetapi pelan yang boleh dilaksanakan, langkah demi langkah.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="chapter-header">
+      <div class="chapter-num-big" style="color: #C4614A;">03</div>
+      <div class="chapter-info">
+        <div class="label">Modul Tiga</div>
+        <h2>Siapa Saya Dalam 3–5 Tahun</h2>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Bahagian ini adalah yang paling penting. Kajian menunjukkan mereka yang menulis dengan terperinci tentang masa depan ideal mereka lebih cenderung mencapainya — bukan kerana kebetulan, tetapi kerana penulisan membina kejelasan, dan kejelasan membina tindakan.</p>
+      <div class="tip">💡 Beranikan diri untuk bermimpi besar. Tiada batasan di sini. Tulis seolah-olah semuanya mungkin.</div>
+    </div>
+
+    <div class="exercise" id="ex-depan-1">
+      <div class="exercise-header" onclick="toggleEx('depan-1')">
+        <div class="ex-num depan">1</div>
+        <div class="ex-title">Kehidupan ideal saya dalam 3–5 tahun</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Bayangkan anda bangun pada pagi hari dalam 3–5 tahun. Tulis dengan terperinci: Di mana anda tinggal? Apa yang anda lakukan untuk kerjaya? Siapa orang-orang di sekeliling anda? Bagaimana perasaan anda setiap hari?</p>
+        <textarea class="writing-box" id="tx-depan-1" placeholder="Kehidupan ideal saya nampak seperti ini..." style="min-height:180px;" oninput="updateCount('depan-1')"></textarea>
+        <div class="word-count" id="wc-depan-1">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn terra-btn" onclick="saveAnswer('depan-1')">Simpan</button>
+          <span class="saved-note" id="saved-depan-1">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-depan-2">
+      <div class="exercise-header" onclick="toggleEx('depan-2')">
+        <div class="ex-num depan">2</div>
+        <div class="ex-title">Matlamat utama saya — 5 bidang kehidupan</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Tetapkan matlamat konkrit dalam setiap bidang ini. Jadikan ia spesifik dan boleh diukur.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+          <div>
+            <label style="font-size:13px; font-weight:500; color: var(--text-dark); display:block; margin-bottom:6px;">💼 Kerjaya & Kewangan</label>
+            <textarea class="writing-box" id="tx-depan-2a" placeholder="Contoh: Capai pendapatan RM X, naik pangkat ke..." style="min-height:80px;" oninput="updateCount('depan-2')"></textarea>
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color: var(--text-dark); display:block; margin-bottom:6px;">❤️ Perhubungan & Keluarga</label>
+            <textarea class="writing-box" id="tx-depan-2b" placeholder="Contoh: Kahwin, bina keluarga, baik pulih hubungan..." style="min-height:80px;" oninput="updateCount('depan-2')"></textarea>
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color: var(--text-dark); display:block; margin-bottom:6px;">🏃 Kesihatan & Gaya Hidup</label>
+            <textarea class="writing-box" id="tx-depan-2c" placeholder="Contoh: Turun berat badan, berlari marathon, tidur cukup..." style="min-height:80px;" oninput="updateCount('depan-2')"></textarea>
+          </div>
+          <div>
+            <label style="font-size:13px; font-weight:500; color: var(--text-dark); display:block; margin-bottom:6px;">📚 Ilmu & Pertumbuhan Diri</label>
+            <textarea class="writing-box" id="tx-depan-2d" placeholder="Contoh: Ambil ijazah, belajar bahasa baru, baca X buku..." style="min-height:80px;" oninput="updateCount('depan-2')"></textarea>
+          </div>
+        </div>
+        <label style="font-size:13px; font-weight:500; color: var(--text-dark); display:block; margin-bottom:6px;">🌍 Sumbangan & Warisan</label>
+        <textarea class="writing-box" id="tx-depan-2e" placeholder="Bagaimana anda ingin memberi kesan kepada orang lain atau masyarakat?" oninput="updateCount('depan-2')"></textarea>
+        <div class="word-count" id="wc-depan-2">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn terra-btn" onclick="saveAnswer('depan-2')">Simpan</button>
+          <span class="saved-note" id="saved-depan-2">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-depan-3">
+      <div class="exercise-header" onclick="toggleEx('depan-3')">
+        <div class="ex-num depan">3</div>
+        <div class="ex-title">Halangan yang mungkin saya hadapi</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Setiap perjalanan ada rintangan. Matlamat tanpa perancangan untuk halangan adalah sekadar angan-angan. Apakah halangan dalaman (ketakutan, kelemahan, kepercayaan terhad) dan luaran (keadaan, orang, sumber) yang mungkin menghalang anda?</p>
+        <textarea class="writing-box" id="tx-depan-3" placeholder="Halangan yang mungkin saya hadapi dan bagaimana saya akan mengatasinya..." oninput="updateCount('depan-3')"></textarea>
+        <div class="word-count" id="wc-depan-3">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn terra-btn" onclick="saveAnswer('depan-3')">Simpan</button>
+          <span class="saved-note" id="saved-depan-3">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise" id="ex-depan-4">
+      <div class="exercise-header" onclick="toggleEx('depan-4')">
+        <div class="ex-num depan">4</div>
+        <div class="ex-title">Langkah pertama saya minggu ini</div>
+        <span class="ex-arrow">▶</span>
+      </div>
+      <div class="exercise-body">
+        <p>Impian besar bermula dengan langkah kecil. Apakah <strong>satu tindakan konkrit</strong> yang boleh anda ambil dalam 7 hari akan datang untuk memulakan perjalanan menuju kehidupan ideal anda?</p>
+        <div class="tip">💡 Buatnya kecil dan mudah. "Hubungi mentor saya" lebih baik dari "Tukar kerjaya seluruhnya." Satu langkah sahaja sudah cukup untuk bermula.</div>
+        <textarea class="writing-box" id="tx-depan-4" placeholder="Langkah pertama saya adalah..." style="min-height:80px;" oninput="updateCount('depan-4')"></textarea>
+        <div class="word-count" id="wc-depan-4">0 patah perkataan</div>
+        <div style="display:flex; align-items:center; margin-top:8px;">
+          <button class="save-btn terra-btn" onclick="saveAnswer('depan-4')">Simpan</button>
+          <span class="saved-note" id="saved-depan-4">✓ Disimpan</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="quote">"Anda mesti tahu ke mana hendak pergi, kerana anda tidak boleh sampai ke sana jika tidak bergerak ke arah yang betul."</div>
+      <div class="attribution">— Prinsip Pengarang Masa Depan</div>
+    </div>
+
+    <div style="text-align:right; padding-top: 16px;">
+      <button class="save-btn" style="padding: 12px 32px; background: var(--lavender);" onclick="showSection('refleksi')">Lihat Refleksi Lengkap →</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: REFLEKSI -->
+<div class="section" id="s-refleksi">
+  <div class="intro-hero">
+    <div class="section-badge" style="background:rgba(107,111,168,0.1); color:#3A3D78;">✦ AI Refleksi</div>
+    <h2 class="section-title">Refleksi Perjalanan Anda</h2>
+    <p class="section-desc">Tahniah! AI akan menganalisis semua jawapan anda dan menghasilkan refleksi yang personal — rumusan, corak, cadangan tindakan, dan surat dari masa depan anda.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="summary-grid" id="summaryGrid">
+      <div class="summary-card lalu"><div class="count" id="cnt-lalu">0</div><div class="label">Soalan Masa Lalu</div></div>
+      <div class="summary-card kini"><div class="count" id="cnt-kini">0</div><div class="label">Soalan Masa Kini</div></div>
+      <div class="summary-card depan"><div class="count" id="cnt-depan">0</div><div class="label">Soalan Masa Depan</div></div>
+    </div>
+
+    <div class="card" id="refleksi-content">
+      <p style="text-align:center; color: var(--text-soft); padding: 20px 0;">Lengkapkan sekurang-kurangnya satu latihan untuk melihat refleksi anda di sini.</p>
+    </div>
+
+    <div id="ai-panel" style="margin-top: 32px;">
+      <div id="ai-trigger-area" style="text-align:center; padding: 40px 24px; background: var(--warm-white); border: 1.5px dashed rgba(107,111,168,0.3); border-radius: 16px; display:none;">
+        <div style="font-size: 36px; margin-bottom: 12px;">✦</div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 20px; color: var(--deep-forest); margin-bottom: 8px;">Sedia untuk refleksi AI?</h3>
+        <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 24px; max-width: 420px; margin-left:auto; margin-right:auto; font-weight:300;">AI akan membaca semua jawapan anda dan menghasilkan 4 bahagian refleksi yang peribadi dalam Bahasa Melayu.</p>
+        <button class="save-btn" id="btn-generate-ai" onclick="generateAIReflection()" style="padding: 14px 36px; font-size: 15px; background: var(--lavender);">✦ Jana Refleksi AI Saya</button>
+        <p style="font-size: 11px; color: var(--text-soft); margin-top: 12px; font-weight:300;">Mengambil masa ~15–30 saat</p>
+      </div>
+
+      <div id="ai-loading" style="display:none; text-align:center; padding: 48px 24px;">
+        <div class="ai-spinner"></div>
+        <p id="ai-loading-text" style="font-size:14px; color: var(--text-soft); margin-top:20px; font-weight:300;">AI sedang membaca perjalanan anda...</p>
+      </div>
+
+      <div id="ai-output" style="display:none;">
+        <div class="ai-card">
+          <div class="ai-card-head" style="background: var(--deep-forest);">
+            <span class="ai-card-icon">📝</span>
+            <div><div class="ai-card-label">Bahagian 1</div><div class="ai-card-title">Rumusan Perjalanan Anda</div></div>
+          </div>
+          <div class="ai-card-body" id="ai-rumusan-text"></div>
+        </div>
+
+        <div class="ai-card">
+          <div class="ai-card-head" style="background: var(--forest);">
+            <span class="ai-card-icon">🔍</span>
+            <div><div class="ai-card-label">Bahagian 2</div><div class="ai-card-title">Corak &amp; Tema Yang Ditemui</div></div>
+          </div>
+          <div class="ai-card-body" id="ai-corak-text"></div>
+        </div>
+
+        <div class="ai-card">
+          <div class="ai-card-head" style="background: var(--gold);">
+            <span class="ai-card-icon">🎯</span>
+            <div><div class="ai-card-label" style="color:rgba(28,46,32,0.6);">Bahagian 3</div><div class="ai-card-title" style="color:var(--deep-forest);">Cadangan Langkah Tindakan</div></div>
+          </div>
+          <div class="ai-card-body" id="ai-tindakan-text"></div>
+        </div>
+
+        <div class="ai-card">
+          <div class="ai-card-head" style="background: var(--terracotta);">
+            <span class="ai-card-icon">✉️</span>
+            <div><div class="ai-card-label">Bahagian 4</div><div class="ai-card-title">Surat Dari Diri Anda Di Masa Depan</div></div>
+          </div>
+          <div class="ai-card-body ai-letter" id="ai-surat-text"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:24px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button class="save-btn" onclick="generateAIReflection()" style="background: var(--lavender); padding: 11px 28px;">↺ Jana Semula</button>
+          <button class="save-btn" onclick="window.print()" style="padding: 11px 28px;">🖨️ Cetak Refleksi</button>
+        </div>
+      </div>
+
+      <div id="ai-error" style="display:none; text-align:center; padding: 32px 24px; background: rgba(196,97,74,0.06); border-radius: 14px; border: 1px solid rgba(196,97,74,0.2);">
+        <p style="font-size:14px; color: var(--terracotta); margin-bottom:16px;" id="ai-error-msg">Ralat berlaku. Sila cuba lagi.</p>
+        <button class="save-btn terra-btn" onclick="generateAIReflection()">Cuba Lagi</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 32px;">
+      <div class="card-header">
+        <div class="card-icon lavender">🔄</div>
+        <div><h3>Langkah Seterusnya</h3></div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot"></div><h4>Semak semula selepas 1 minggu</h4><p>Baca kembali refleksi AI dan jawapan anda. Adakah ada perspektif baru?</p></div>
+        <div class="timeline-item"><div class="timeline-dot gold"></div><h4>Kongsi dengan mentor atau rakan dipercayai</h4><p>Perkongsian bertanggungjawab meningkatkan kemungkinan anda bertindak atas matlamat anda.</p></div>
+        <div class="timeline-item"><div class="timeline-dot terra"></div><h4>Ulang setiap 6 bulan</h4><p>Program ini paling berkesan apabila dilakukan secara berkala.</p></div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <div class="quote">"Hidup yang tidak diperiksa tidak layak untuk dijalani. Hidup yang ditulis adalah hidup yang difahami."</div>
+      <div class="attribution">— Adaptasi daripada Socrates</div>
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>Pengarang Diri</h3>
+  <p>Program pembangunan diri berasaskan sains untuk profesional muda Malaysia.</p>
+  <div class="footer-links">
+    <span class="footer-link" style="cursor:pointer" onclick="showSection('intro')">Mula Semula</span>
+    <span style="color: rgba(255,255,255,0.2)">|</span>
+    <span class="footer-link" style="cursor:pointer" onclick="showSection('lalu')">Modul 1</span>
+    <span style="color: rgba(255,255,255,0.2)">|</span>
+    <span class="footer-link" style="cursor:pointer" onclick="showSection('kini')">Modul 2</span>
+    <span style="color: rgba(255,255,255,0.2)">|</span>
+    <span class="footer-link" style="cursor:pointer" onclick="showSection('depan')">Modul 3</span>
+  </div>
+</footer>
+</div><!-- /app-content -->
+
+<script>
+  const sections = ['intro','lalu','kini','depan','refleksi'];
+  const answers = {};
+
+  function showSection(name) {
+    sections.forEach(s => {
+      document.getElementById('s-'+s).classList.remove('active');
+    });
+    document.getElementById('s-'+name).classList.add('active');
+
+    document.querySelectorAll('.nav-tab').forEach((t,i) => {
+      t.classList.toggle('active', sections[i] === name);
+    });
+
+    const idx = sections.indexOf(name);
+    document.getElementById('progressBar').style.width = ((idx / (sections.length-1)) * 100) + '%';
+
+    if (name === 'refleksi') buildRefleksi();
+    window.scrollTo({ top: document.getElementById('main-nav').offsetTop - 10, behavior: 'smooth' });
+  }
+
+  function toggleEx(id) {
+    const el = document.getElementById('ex-'+id);
+    el.classList.toggle('open');
+  }
+
+  function updateCount(id) {
+    const tx = document.getElementById('tx-'+id);
+    const wc = document.getElementById('wc-'+id);
+    if (!tx || !wc) return;
+    const words = tx.value.trim().split(/\s+/).filter(w => w.length > 0).length;
+    wc.textContent = words + ' patah perkataan';
+  }
+
+  function saveAnswer(id) {
+    const fields = [];
+    const mainTx = document.getElementById('tx-'+id);
+    if (mainTx) fields.push(mainTx.value);
+
+    // multi-field support (depan-2)
+    ['a','b','c','d','e'].forEach(suffix => {
+      const t = document.getElementById('tx-'+id+suffix);
+      if (t) fields.push(t.value);
+    });
+
+    answers[id] = fields.join('\n\n---\n\n');
+
+    const note = document.getElementById('saved-'+id);
+    if (note) {
+      note.style.display = 'inline';
+      setTimeout(() => note.style.display = 'none', 2000);
+    }
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const total = Object.keys(answers).length;
+    const maxQ = 12;
+    const pct = Math.min(100, Math.round((total / maxQ) * 100));
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  function buildRefleksi() {
+    const laluKeys = ['lalu-1','lalu-2','lalu-3','lalu-4'];
+    const kiniKeys = ['kini-1','kini-2','kini-3','kini-4'];
+    const depanKeys = ['depan-1','depan-2','depan-3','depan-4'];
+
+    const cntL = laluKeys.filter(k => answers[k] && answers[k].trim()).length;
+    const cntK = kiniKeys.filter(k => answers[k] && answers[k].trim()).length;
+    const cntD = depanKeys.filter(k => answers[k] && answers[k].trim()).length;
+
+    document.getElementById('cnt-lalu').textContent = cntL + '/4';
+    document.getElementById('cnt-kini').textContent = cntK + '/4';
+    document.getElementById('cnt-depan').textContent = cntD + '/4';
+
+    const all = [...laluKeys, ...kiniKeys, ...depanKeys].filter(k => answers[k] && answers[k].trim());
+    const container = document.getElementById('refleksi-content');
+
+    if (all.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color: var(--text-soft); padding: 20px 0;">Lengkapkan sekurang-kurangnya satu latihan untuk melihat refleksi anda di sini.</p>';
+      return;
+    }
+
+    const labels = {
+      'lalu-1':'Zaman Pertama — Kanak-kanak awal',
+      'lalu-2':'Zaman Kedua — Zaman sekolah',
+      'lalu-3':'Peristiwa yang paling membentuk saya',
+      'lalu-4':'Warisan yang saya bawa ke hari ini',
+      'kini-1':'Tabiat atau tingkah laku yang merugikan',
+      'kini-2':'Pencetus tingkah laku negatif',
+      'kini-3':'Kekuatan dan bakat semulajadi',
+      'kini-4':'Kekuatan yang belum digunakan sepenuhnya',
+      'depan-1':'Kehidupan ideal saya dalam 3–5 tahun',
+      'depan-2':'Matlamat dalam 5 bidang kehidupan',
+      'depan-3':'Halangan yang mungkin saya hadapi',
+      'depan-4':'Langkah pertama minggu ini'
+    };
+
+    const colorMap = { lalu:'var(--forest)', kini:'#8B6520', depan:'var(--terracotta)' };
+    const bgMap = { lalu:'rgba(28,46,32,0.05)', kini:'rgba(201,148,58,0.07)', depan:'rgba(196,97,74,0.05)' };
+
+    let html = '<h3 style="font-family: Playfair Display, serif; margin-bottom:24px; font-size:18px;">Jawapan Yang Telah Anda Simpan</h3>';
+    all.forEach(k => {
+      const type = k.split('-')[0];
+      const preview = answers[k].substring(0, 200) + (answers[k].length > 200 ? '...' : '');
+      html += `<div style="background:${bgMap[type]}; border-radius:10px; padding:16px 20px; margin-bottom:16px; border-left: 3px solid ${colorMap[type]};">
+        <div style="font-size:12px; font-weight:500; color:${colorMap[type]}; letter-spacing:0.5px; margin-bottom:6px; text-transform:uppercase;">${labels[k]}</div>
+        <p style="font-size:14px; color: var(--text-mid); line-height:1.65; font-weight:300;">${preview.replace(/\n/g,'<br>')}</p>
+      </div>`;
+    });
+    container.innerHTML = html;
+    // Show AI trigger button
+    document.getElementById("ai-trigger-area").style.display = "block";
+    // Reset AI panel if not already showing output
+    if (document.getElementById("ai-output").style.display !== "block") {
+      document.getElementById("ai-loading").style.display = "none";
+      document.getElementById("ai-error").style.display = "none";
+    }
+  }
+
+  // Load saved data from localStorage
+  window.addEventListener('load', () => {
+    const saved = localStorage.getItem('pengarang-diri');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        Object.assign(answers, data);
+        Object.keys(answers).forEach(k => {
+          const tx = document.getElementById('tx-'+k);
+          if (tx) {
+            tx.value = answers[k];
+            updateCount(k);
+          }
+        });
+      } catch(e) {}
+    }
+  });
+
+  // Auto-save to localStorage on any textarea change
+  document.addEventListener('input', (e) => {
+    if (e.target.classList.contains('writing-box')) {
+      localStorage.setItem('pengarang-diri', JSON.stringify(answers));
+    }
+  });
+
+  // Scroll to show nav
+  window.addEventListener('scroll', () => {
+    const cover = document.getElementById('cover');
+    const nav = document.getElementById('main-nav');
+  });
+
+  /* ── AI REFLECTION ENGINE ─────────────────────────────── */
+
+  const labels = {
+    "lalu-1":"Zaman kanak-kanak awal",
+    "lalu-2":"Zaman sekolah",
+    "lalu-3":"Peristiwa paling membentuk diri",
+    "lalu-4":"Warisan dari masa lalu",
+    "kini-1":"Tabiat yang merugikan",
+    "kini-2":"Pencetus tingkah laku negatif",
+    "kini-3":"Kekuatan dan bakat semulajadi",
+    "kini-4":"Kekuatan yang belum digunakan",
+    "depan-1":"Kehidupan ideal 3-5 tahun",
+    "depan-2":"Matlamat 5 bidang kehidupan",
+    "depan-3":"Halangan yang mungkin dihadapi",
+    "depan-4":"Langkah pertama minggu ini"
+  };
+
+  function buildAnswerContext() {
+    const allKeys = Object.keys(labels);
+    const filled = allKeys.filter(k => answers[k] && answers[k].trim());
+    if (filled.length === 0) return null;
+    let ctx = "";
+    filled.forEach(k => {
+      ctx += `[${labels[k]}]\n${answers[k].trim()}\n\n`;
+    });
+    return ctx;
+  }
+
+  function showAIState(state) {
+    document.getElementById("ai-trigger-area").style.display = state === "trigger" ? "block" : "none";
+    document.getElementById("ai-loading").style.display    = state === "loading"  ? "block" : "none";
+    document.getElementById("ai-output").style.display     = state === "output"   ? "block" : "none";
+    document.getElementById("ai-error").style.display      = state === "error"    ? "block" : "none";
+  }
+
+  const loadingMessages = [
+    "AI sedang membaca perjalanan anda...",
+    "Mencari corak dalam cerita anda...",
+    "Merangka surat dari masa depan...",
+    "Menyusun cadangan yang bermakna...",
+    "Hampir siap..."
+  ];
+  let loadingTimer = null;
+
+  function startLoadingAnimation() {
+    let i = 0;
+    const el = document.getElementById("ai-loading-text");
+    el.textContent = loadingMessages[0];
+    loadingTimer = setInterval(() => {
+      i = (i + 1) % loadingMessages.length;
+      el.textContent = loadingMessages[i];
+    }, 4000);
+  }
+
+  function stopLoadingAnimation() {
+    if (loadingTimer) { clearInterval(loadingTimer); loadingTimer = null; }
+  }
+
+  function parseAISections(text) {
+    const out = { rumusan: "", corak: "", tindakan: "", surat: "" };
+    const s1 = text.match(/RUMUSAN[^]*?(?=CORAK|$)/i);
+    const s2 = text.match(/CORAK[^]*?(?=TINDAKAN|$)/i);
+    const s3 = text.match(/TINDAKAN[^]*?(?=SURAT|$)/i);
+    const s4 = text.match(/SURAT[^]*/i);
+    if (s1) out.rumusan  = s1[0].replace(/^RUMUSAN[^\n]*\n*/i, "").trim();
+    if (s2) out.corak    = s2[0].replace(/^CORAK[^\n]*\n*/i,   "").trim();
+    if (s3) out.tindakan = s3[0].replace(/^TINDAKAN[^\n]*\n*/i,"").trim();
+    if (s4) out.surat    = s4[0].replace(/^SURAT[^\n]*\n*/i,   "").trim();
+    return out;
+  }
+
+  function renderMarkdown(text) {
+    return text
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/^[-•] (.+)/gm, "<li>$1</li>")
+      .replace(/(<li>.*?<\/li>)/gs, "<ul>$1</ul>")
+      .replace(/\n\n/g, "</p><p>")
+      .replace(/\n/g, "<br>")
+      .replace(/^/, "<p>").replace(/$/, "</p>");
+  }
+
+  async function generateAIReflection() {
+    const ctx = buildAnswerContext();
+    if (!ctx) {
+      document.getElementById("ai-error-msg").textContent = "Sila lengkapkan sekurang-kurangnya satu latihan dahulu.";
+      showAIState("error"); return;
+    }
+    showAIState("loading");
+    startLoadingAnimation();
+
+    const prompt = `Anda adalah kaunselor pembangunan diri yang empati dan bijak. Seorang profesional muda Malaysia telah melengkapkan program penulisan reflektif "Pengarang Diri". Berikut adalah jawapan-jawapan mereka:
+
+${ctx}
+
+Sila hasilkan refleksi dalam Bahasa Melayu yang tulus, peribadi, dan bermakna. Bahagikan kepada 4 bahagian dengan header berikut (gunakan perkataan header ini tepat-tepat):
+
+RUMUSAN
+[Rumuskan semua jawapan dalam 2-3 paragraf yang hangat dan peribadi. Sebutkan tema-tema utama yang terlihat dari keseluruhan jawapan.]
+
+CORAK
+[Kenal pasti 3-5 corak atau tema yang berulang dalam jawapan mereka. Contoh: "Anda nampaknya seorang yang..." atau "Terdapat corak yang jelas bahawa..."]
+
+TINDAKAN
+[Cadangkan 5 langkah tindakan yang spesifik, praktikal dan boleh dilaksanakan segera berdasarkan matlamat dan situasi mereka. Format sebagai senarai bernombor.]
+
+SURAT
+[Tulis surat peribadi dari diri mereka di masa depan (3-5 tahun akan datang) kepada diri mereka sekarang. Tulis seolah-olah anda adalah versi masa depan mereka yang telah berjaya. Gunakan nada yang penuh harapan, sayang, dan jujur. Mulakan dengan "Salam sejahtera,".]
+
+Gunakan Bahasa Melayu yang natural, hangat, dan tidak terlalu formal.`;
+
+    try {
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1800,
+          messages: [{ role: "user", content: prompt }]
+        })
+      });
+
+      stopLoadingAnimation();
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error?.message || "API error " + res.status);
+      }
+
+      const data = await res.json();
+      const text = data.content?.map(b => b.text || "").join("") || "";
+
+      if (!text) throw new Error("Tiada respons dari AI.");
+
+      const sections = parseAISections(text);
+
+      document.getElementById("ai-rumusan-text").innerHTML  = renderMarkdown(sections.rumusan  || text);
+      document.getElementById("ai-corak-text").innerHTML    = renderMarkdown(sections.corak    || "");
+      document.getElementById("ai-tindakan-text").innerHTML = renderMarkdown(sections.tindakan || "");
+      document.getElementById("ai-surat-text").innerHTML    = renderMarkdown(sections.surat    || "").replace(/<p>/g, "<p style='white-space:pre-wrap'>");
+
+      showAIState("output");
+      document.getElementById("ai-output").scrollIntoView({ behavior: "smooth", block: "start" });
+
+    } catch(e) {
+      stopLoadingAnimation();
+      console.error(e);
+      document.getElementById("ai-error-msg").textContent = "Ralat: " + e.message;
+      showAIState("error");
+    }
+  }
+
+  /* ── PASSWORD SYSTEM ────────────────────────────────── */
+
+  const DEFAULT_PW_HASH = '7252d685003167d75c58f6b494bbd8862062e7fc82ddb6e250b9f543dbf5312c'; // 'peace5678'
+  const PW_SESSION_KEY  = 'pd-session';
+  const PW_HASH_KEY     = 'pd-pw-hash';
+  const SESSION_TTL     = 8 * 60 * 60 * 1000; // 8 hours
+
+  async function sha256(str) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function getStoredHash() {
+    return localStorage.getItem(PW_HASH_KEY) || DEFAULT_PW_HASH;
+  }
+
+  function isSessionValid() {
+    try {
+      const s = JSON.parse(sessionStorage.getItem(PW_SESSION_KEY) || 'null');
+      return s && s.ts && (Date.now() - s.ts < SESSION_TTL);
+    } catch { return false; }
+  }
+
+  function createSession() {
+    sessionStorage.setItem(PW_SESSION_KEY, JSON.stringify({ ts: Date.now() }));
+  }
+
+  function destroySession() {
+    sessionStorage.removeItem(PW_SESSION_KEY);
+  }
+
+  function showApp() {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app-content').style.display  = 'block';
+  }
+
+  function showLogin(msg) {
+    document.getElementById('app-content').style.display  = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    if (msg) {
+      const err = document.getElementById('login-error');
+      err.textContent = msg; err.classList.add('show');
+    }
+  }
+
+  async function handleLogin() {
+    const input = document.getElementById('pw-login-input');
+    const err   = document.getElementById('login-error');
+    const btn   = document.getElementById('btn-do-login');
+    const pw    = input.value.trim();
+
+    if (!pw) { err.textContent = 'Sila masukkan kata laluan.'; err.classList.add('show'); return; }
+
+    btn.disabled = true; btn.textContent = 'Menyemak...';
+    const hash = await sha256(pw);
+    btn.disabled = false; btn.textContent = 'Masuk →';
+
+    if (hash === getStoredHash()) {
+      err.classList.remove('show');
+      input.value = '';
+      createSession();
+      showApp();
+    } else {
+      input.value = '';
+      err.textContent = 'Kata laluan tidak betul. Sila cuba lagi.';
+      err.classList.add('show');
+      input.focus();
+    }
+  }
+
+  /* ── CHANGE PASSWORD ── */
+
+  function openChangePasswordModal() {
+    document.getElementById('pw-modal-overlay').classList.add('show');
+    document.getElementById('modal-old-pw').value    = '';
+    document.getElementById('modal-new-pw').value    = '';
+    document.getElementById('modal-confirm-pw').value= '';
+    document.getElementById('modal-error').classList.remove('show');
+    document.getElementById('modal-success').classList.remove('show');
+    resetStrengthBar();
+    document.getElementById('modal-old-pw').focus();
+  }
+
+  function closeChangePasswordModal() {
+    document.getElementById('pw-modal-overlay').classList.remove('show');
+  }
+
+  function resetStrengthBar() {
+    document.getElementById('pw-strength-bar').style.width      = '0%';
+    document.getElementById('pw-strength-bar').style.background = 'var(--border)';
+    document.getElementById('pw-strength-label').textContent    = '';
+  }
+
+  function checkStrength(pw) {
+    let score = 0;
+    if (pw.length >= 8)  score++;
+    if (pw.length >= 12) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    const levels = [
+      { pct: '20%', color: '#E24B4A', label: 'Lemah' },
+      { pct: '40%', color: '#E8A090', label: 'Kurang kuat' },
+      { pct: '60%', color: '#E8C87A', label: 'Sederhana' },
+      { pct: '80%', color: '#A8C4AC', label: 'Kuat' },
+      { pct: '100%',color: '#6B8C6F', label: 'Sangat kuat' },
+    ];
+    const lvl = levels[Math.min(score, 4)];
+    document.getElementById('pw-strength-bar').style.width      = lvl.pct;
+    document.getElementById('pw-strength-bar').style.background = lvl.color;
+    document.getElementById('pw-strength-label').textContent    = pw ? lvl.label : '';
+  }
+
+  async function handleChangePassword() {
+    const oldPw  = document.getElementById('modal-old-pw').value;
+    const newPw  = document.getElementById('modal-new-pw').value;
+    const confPw = document.getElementById('modal-confirm-pw').value;
+    const errEl  = document.getElementById('modal-error');
+    const sucEl  = document.getElementById('modal-success');
+    const btn    = document.getElementById('btn-save-pw');
+
+    errEl.classList.remove('show'); sucEl.classList.remove('show');
+
+    if (!oldPw || !newPw || !confPw) {
+      errEl.textContent = 'Sila isi semua medan.'; errEl.classList.add('show'); return;
+    }
+    if (newPw.length < 6) {
+      errEl.textContent = 'Kata laluan baru mestilah sekurang-kurangnya 6 aksara.'; errEl.classList.add('show'); return;
+    }
+    if (newPw !== confPw) {
+      errEl.textContent = 'Kata laluan baru tidak sepadan.'; errEl.classList.add('show'); return;
+    }
+
+    btn.disabled = true; btn.textContent = 'Menyimpan...';
+    const oldHash = await sha256(oldPw);
+    const newHash = await sha256(newPw);
+    btn.disabled = false; btn.textContent = 'Simpan Kata Laluan';
+
+    if (oldHash !== getStoredHash()) {
+      errEl.textContent = 'Kata laluan semasa tidak betul.'; errEl.classList.add('show'); return;
+    }
+
+    localStorage.setItem(PW_HASH_KEY, newHash);
+    sucEl.textContent = '✓ Kata laluan berjaya ditukar!'; sucEl.classList.add('show');
+    document.getElementById('modal-old-pw').value    = '';
+    document.getElementById('modal-new-pw').value    = '';
+    document.getElementById('modal-confirm-pw').value= '';
+    resetStrengthBar();
+    setTimeout(closeChangePasswordModal, 1800);
+  }
+
+  /* ── TOGGLE PASSWORD VISIBILITY ── */
+  function togglePwVis(inputId, btnId) {
+    const inp = document.getElementById(inputId);
+    const btn = document.getElementById(btnId);
+    if (inp.type === 'password') { inp.type = 'text';     btn.textContent = '🙈'; }
+    else                        { inp.type = 'password';  btn.textContent = '👁'; }
+  }
+
+  /* ── BOOT ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    if (isSessionValid()) { showApp(); }
+    else { showLogin(); }
+
+    // Enter key on login
+    document.getElementById('pw-login-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleLogin();
+    });
+
+    // New password strength meter
+    document.getElementById('modal-new-pw').addEventListener('input', e => {
+      checkStrength(e.target.value);
+    });
+
+    // Click outside modal to close
+    document.getElementById('pw-modal-overlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('pw-modal-overlay')) closeChangePasswordModal();
+    });
+  });
+
+
+</script>
+</body>
+</html>
